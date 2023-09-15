@@ -17,6 +17,6 @@ public class BackToMenu : MonoBehaviour
     }
     public void Resize()
     {
-        normalText.fontSize = 24f;
+        normalText.fontSize = 90f;
     }
 }

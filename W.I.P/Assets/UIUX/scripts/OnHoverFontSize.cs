@@ -10,10 +10,10 @@ public class OnHoverFontSize : MonoBehaviour,IPointerEnterHandler,IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        text.fontSize = 30f;
+        text.fontSize = 100f;
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        text.fontSize = 24f;
+        text.fontSize = 90f;
     }
 }
