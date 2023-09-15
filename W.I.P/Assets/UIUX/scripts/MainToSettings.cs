@@ -7,7 +7,13 @@ public class MainToSettings : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject settings;
-    public TMP_Text normalText;
+
+    public Vector3 startFontSize;
+
+    public void Start()
+    {
+        startFontSize = transform.localScale;
+    }
 
     public void SettingsSwitch()
     {
@@ -17,6 +23,6 @@ public class MainToSettings : MonoBehaviour
     }
     public void Resize()
     {
-        normalText.fontSize = 90f;
+        transform.localScale = startFontSize;
     }
 }

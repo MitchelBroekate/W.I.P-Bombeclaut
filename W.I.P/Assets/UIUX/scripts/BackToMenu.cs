@@ -7,8 +7,13 @@ public class BackToMenu : MonoBehaviour
 {
     public GameObject activeScreen;
     public GameObject mainMenu;
-    public TMP_Text normalText;
 
+    public Vector3 startFontSize;
+
+    public void Start()
+    {
+        startFontSize = transform.localScale;
+    }
     public void BackToMenuSwitch()
     {
         activeScreen.SetActive(false);
@@ -17,6 +22,6 @@ public class BackToMenu : MonoBehaviour
     }
     public void Resize()
     {
-        normalText.fontSize = 90f;
+        transform.localScale = startFontSize;
     }
 }

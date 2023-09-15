@@ -7,8 +7,13 @@ public class MainToCredits : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject credits;
-    public TMP_Text normalText;
 
+    public Vector3 startFontSize;
+
+    public void Start()
+    {
+        startFontSize = transform.localScale;
+    }
     public void CreditsSwitch()
     {
         mainMenu.SetActive(false);
@@ -17,6 +22,6 @@ public class MainToCredits : MonoBehaviour
     }
     public void Resize()
     {
-        normalText.fontSize = 90f;
+        transform.localScale = startFontSize;
     }
 }
