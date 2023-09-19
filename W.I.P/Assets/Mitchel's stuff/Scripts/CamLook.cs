@@ -8,7 +8,7 @@ public class CamLook : MonoBehaviour
 {
     private InputMaster controls;
     [SerializeField]
-    private float mouseSens = 100f;
+    private float mouseSens;
 
     private Vector2 camLook;
 

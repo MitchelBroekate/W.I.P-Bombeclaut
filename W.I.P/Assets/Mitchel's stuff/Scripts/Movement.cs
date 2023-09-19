@@ -6,31 +6,37 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    #region Variables
     private InputMaster controls;
-
-    private float moveSpeed = 7f;
-
-    private Vector3 velocity;
-
     private Vector2 move;
 
-    private int sprint;
+    [SerializeField]
+    private float moveSpeed = 7;
 
+    [SerializeField]
     private CharacterController controller;
 
+    [SerializeField]
+    private bool isSprinting;
+    #endregion
+
+    #region Awake and Update
     private void Awake()
     {
         controls = new InputMaster();
-        controls = GetComponent<InputMaster>();
+        controls.Player.SprintStart.performed += x => isSprinting = true;
+        controls.Player.SprintStart.canceled += x => isSprinting = false;
 
     }
 
     void Update()
     {
         PlayerMovement();
-
+        SprintCheck();
     }
+    #endregion
 
+    #region Movement void
     private void PlayerMovement()
     {
         move = controls.Player.Movement.ReadValue<Vector2>();
@@ -39,14 +45,24 @@ public class Movement : MonoBehaviour
 
         controller.Move(movement * moveSpeed * Time.deltaTime);
     }
+    #endregion
 
-    private void SprintPressed() { }
-
-    private void SprintReleased()
+    #region SprintCheck
+    private void SprintCheck() 
     {
-        
+        if (isSprinting)
+        {
+            moveSpeed = 10;
+        }
+        else
+        {
+            moveSpeed = 7;
+        }
     }
 
+    #endregion
+
+    #region Enable/Disable Mem leaks
     private void OnEnable()
     {
         controls.Enable();
@@ -56,4 +72,5 @@ public class Movement : MonoBehaviour
     {
         controls.Disable();
     }
+    #endregion
 }
