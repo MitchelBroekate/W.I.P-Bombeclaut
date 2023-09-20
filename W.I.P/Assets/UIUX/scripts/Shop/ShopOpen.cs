@@ -10,7 +10,7 @@ public class ShopOpen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if(shopIsOpen == false)
+            if(!shopIsOpen)
             {
                 shop.SetActive(true);
                 shopIsOpen = true;
