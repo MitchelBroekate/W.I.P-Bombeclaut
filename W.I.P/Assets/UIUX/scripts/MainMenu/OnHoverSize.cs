@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OnHoverFontSize : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+public class OnHoverSize : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject text;
-
     public Vector3 startFontSize;
-
     public void Start()
     {
         startFontSize = transform.localScale;
