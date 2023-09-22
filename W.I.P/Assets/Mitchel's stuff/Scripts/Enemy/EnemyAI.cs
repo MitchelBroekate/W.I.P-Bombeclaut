@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     private int currentDest = 0;
     #endregion
 
+    #region Awake and Update
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,7 +26,9 @@ public class EnemyAI : MonoBehaviour
     {
         NextPoint();
     }
+    #endregion
 
+    #region Destination changing
     private void NextPoint()
     {
         agent.destination = checkpoints[currentDest].position;
@@ -36,4 +39,5 @@ public class EnemyAI : MonoBehaviour
         }
 
     }
+    #endregion
 }
