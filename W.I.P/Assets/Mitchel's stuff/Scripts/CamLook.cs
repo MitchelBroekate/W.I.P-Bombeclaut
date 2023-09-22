@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class CamLook : MonoBehaviour
 {
+    #region Links
     private InputMaster controls;
     [SerializeField]
     private float mouseSens;
@@ -15,8 +15,9 @@ public class CamLook : MonoBehaviour
     private float xRotate = 0f;
     [SerializeField]
     private Transform playerBody;
+    #endregion
 
-
+    #region Awake and Update
     private void Awake()
     {
         playerBody = transform.parent;
@@ -30,7 +31,9 @@ public class CamLook : MonoBehaviour
     {
         CamMove();
     }
+    #endregion
 
+    #region Camera movement
     private void CamMove()
     {
         camLook = controls.Player.Cam.ReadValue<Vector2>();
@@ -44,8 +47,9 @@ public class CamLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotate, 0, 0);
         playerBody.Rotate(Vector3.up * mouseX);
     }
+    #endregion
 
-
+    #region Mem Leaks
     private void OnEnable()
     {
         controls.Enable();
@@ -55,4 +59,5 @@ public class CamLook : MonoBehaviour
     {
         controls.Disable();
     }
+    #endregion
 }

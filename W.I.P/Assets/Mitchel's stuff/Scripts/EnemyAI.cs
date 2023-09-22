@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    NavMeshAgent agent;
+    [SerializeField]
+    private NavMeshAgent agent;
 
 
 
