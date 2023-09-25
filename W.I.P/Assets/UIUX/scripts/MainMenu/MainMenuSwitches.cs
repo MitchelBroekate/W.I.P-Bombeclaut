@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuSwitches : MonoBehaviour
 {
+    public AudioSource sFX;
+    public AudioClip whoosh;
+
     public GameObject mainMenu;
     public GameObject settings;
     public GameObject credits;
@@ -21,6 +24,8 @@ public class MainMenuSwitches : MonoBehaviour
     }
     public void StartGameSwitch()
     {
+        sFX.clip = whoosh;
+        sFX.Play();
         fadeInAnimator.SetTrigger("FadeIn");
         StartCoroutine(FadeIn());
     }
@@ -40,6 +45,10 @@ public class MainMenuSwitches : MonoBehaviour
         Resize();
         mainMenu.SetActive(false);
         credits.SetActive(true);
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     public void BackToMenuSwitchSettings()
     {
