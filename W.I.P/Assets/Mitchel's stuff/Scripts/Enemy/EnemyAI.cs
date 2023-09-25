@@ -31,13 +31,16 @@ public class EnemyAI : MonoBehaviour
     #region Destination changing
     private void NextPoint()
     {
-        agent.destination = checkpoints[currentDest].position;
-
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (currentDest != checkpoints.Length)
         {
-                currentDest += 1;
-        }
+            agent.destination = checkpoints[currentDest].position;
 
+            if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            {
+
+                currentDest += 1;
+            }
+        }
     }
     #endregion
 }
