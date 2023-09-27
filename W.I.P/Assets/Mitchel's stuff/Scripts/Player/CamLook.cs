@@ -16,13 +16,13 @@ public class CamLook : MonoBehaviour
     private float xRotate = 0f;
 
     [SerializeField]
-    private Transform playerBody;
+    public Transform playerBody;
     #endregion
 
     #region Awake and Update
     private void Awake()
     {
-        playerBody = transform.parent;
+
 
         controls = new InputMaster();
 
@@ -51,10 +51,7 @@ public class CamLook : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotate, 0, 0);
             playerBody.Rotate(Vector3.up * mouseX);
         }
-        else
-        {
-
-        }
+    
 
         
     }
