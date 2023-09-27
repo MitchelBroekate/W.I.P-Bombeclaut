@@ -64,13 +64,13 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SprintEnd"",
-                    ""type"": ""Button"",
-                    ""id"": ""0ace2d41-f500-4449-804b-44cbcbffe424"",
+                    ""name"": ""ShopTab"",
+                    ""type"": ""Value"",
+                    ""id"": ""12d0a3dd-8aee-49fb-8fec-12b227b1bc3e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -142,34 +142,34 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ba6acaf0-1302-4306-bb35-cc5c3d9c815c"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SprintStart"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c94adbf1-8839-47f2-a6dd-5fd5aedbed6a"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": ""Press(behavior=1)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SprintEnd"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0276156f-cf92-4107-a21e-3ef25f155486"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92322cbb-2090-4830-92f7-8fb5d2ade626"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShopTab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba6acaf0-1302-4306-bb35-cc5c3d9c815c"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SprintStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -184,7 +184,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_Cam = m_Player.FindAction("Cam", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_SprintStart = m_Player.FindAction("SprintStart", throwIfNotFound: true);
-        m_Player_SprintEnd = m_Player.FindAction("SprintEnd", throwIfNotFound: true);
+        m_Player_ShopTab = m_Player.FindAction("ShopTab", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -248,7 +248,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Cam;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_SprintStart;
-    private readonly InputAction m_Player_SprintEnd;
+    private readonly InputAction m_Player_ShopTab;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -257,7 +257,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @Cam => m_Wrapper.m_Player_Cam;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @SprintStart => m_Wrapper.m_Player_SprintStart;
-        public InputAction @SprintEnd => m_Wrapper.m_Player_SprintEnd;
+        public InputAction @ShopTab => m_Wrapper.m_Player_ShopTab;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -279,9 +279,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @SprintStart.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintStart;
                 @SprintStart.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintStart;
                 @SprintStart.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintStart;
-                @SprintEnd.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnd;
-                @SprintEnd.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnd;
-                @SprintEnd.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprintEnd;
+                @ShopTab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShopTab;
+                @ShopTab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShopTab;
+                @ShopTab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShopTab;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -298,9 +298,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @SprintStart.started += instance.OnSprintStart;
                 @SprintStart.performed += instance.OnSprintStart;
                 @SprintStart.canceled += instance.OnSprintStart;
-                @SprintEnd.started += instance.OnSprintEnd;
-                @SprintEnd.performed += instance.OnSprintEnd;
-                @SprintEnd.canceled += instance.OnSprintEnd;
+                @ShopTab.started += instance.OnShopTab;
+                @ShopTab.performed += instance.OnShopTab;
+                @ShopTab.canceled += instance.OnShopTab;
             }
         }
     }
@@ -311,6 +311,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnCam(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnSprintStart(InputAction.CallbackContext context);
-        void OnSprintEnd(InputAction.CallbackContext context);
+        void OnShopTab(InputAction.CallbackContext context);
     }
 }

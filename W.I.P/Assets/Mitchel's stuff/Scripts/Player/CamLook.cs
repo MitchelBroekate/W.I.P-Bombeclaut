@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,12 +8,13 @@ public class CamLook : MonoBehaviour
 {
     #region Links
     private InputMaster controls;
+    public bool canCamMove = true;
+
     [SerializeField]
     private float mouseSens;
-
     private Vector2 camLook;
-
     private float xRotate = 0f;
+
     [SerializeField]
     private Transform playerBody;
     #endregion
@@ -43,9 +45,18 @@ public class CamLook : MonoBehaviour
 
         xRotate -= mouseY;
         xRotate = Mathf.Clamp(xRotate, -90f, 90f);
+
+        if(canCamMove)
+        {
+            transform.localRotation = Quaternion.Euler(xRotate, 0, 0);
+            playerBody.Rotate(Vector3.up * mouseX);
+        }
+        else
+        {
+
+        }
+
         
-        transform.localRotation = Quaternion.Euler(xRotate, 0, 0);
-        playerBody.Rotate(Vector3.up * mouseX);
     }
     #endregion
 

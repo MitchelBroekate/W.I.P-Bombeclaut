@@ -6,9 +6,10 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    #region Variables
+    #region Link
     private InputMaster controls;
     private Vector2 move;
+    public bool canMove = true;
 
     [SerializeField]
     private float moveSpeed = 7;
@@ -39,11 +40,18 @@ public class Movement : MonoBehaviour
     #region Movement void
     private void PlayerMovement()
     {
-        move = controls.Player.Movement.ReadValue<Vector2>();
+        if (canMove)
+        {
+            move = controls.Player.Movement.ReadValue<Vector2>();
 
-        Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
 
-        controller.Move(movement * moveSpeed * Time.deltaTime);
+            controller.Move(movement * moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+        
+        }
     }
     #endregion
 

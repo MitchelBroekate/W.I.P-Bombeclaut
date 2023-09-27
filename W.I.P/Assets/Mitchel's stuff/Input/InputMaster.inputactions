@@ -42,13 +42,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SprintEnd",
-                    "type": "Button",
-                    "id": "0ace2d41-f500-4449-804b-44cbcbffe424",
+                    "name": "ShopTab",
+                    "type": "Value",
+                    "id": "12d0a3dd-8aee-49fb-8fec-12b227b1bc3e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -120,34 +120,34 @@
                 },
                 {
                     "name": "",
-                    "id": "ba6acaf0-1302-4306-bb35-cc5c3d9c815c",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SprintStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c94adbf1-8839-47f2-a6dd-5fd5aedbed6a",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SprintEnd",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0276156f-cf92-4107-a21e-3ef25f155486",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "92322cbb-2090-4830-92f7-8fb5d2ade626",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShopTab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba6acaf0-1302-4306-bb35-cc5c3d9c815c",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SprintStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
