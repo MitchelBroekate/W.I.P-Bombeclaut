@@ -21,6 +21,9 @@ public class ShopOpen : MonoBehaviour
     float time;
     public GameObject pivot;
     public float camCooldown;
+    public AudioSource sFX;
+    public AudioClip shopOpenSFX;
+    public AudioClip shopCloseSFX;
     #endregion
 
     #region Awake and update
@@ -55,6 +58,8 @@ public class ShopOpen : MonoBehaviour
         if (!shopIsOpen)
         {
             camStartPos = mainCam.transform;
+            sFX.clip = shopOpenSFX;
+            sFX.Play();
             shop.SetActive(true);
             shopIsOpen = true;
             Cursor.lockState = CursorLockMode.None;
@@ -66,6 +71,8 @@ public class ShopOpen : MonoBehaviour
         }
         else
         {
+            sFX.clip = shopCloseSFX;
+            sFX.Play();
             shop.SetActive(false);
             shopIsOpen = false;
             Cursor.lockState = CursorLockMode.Locked;
