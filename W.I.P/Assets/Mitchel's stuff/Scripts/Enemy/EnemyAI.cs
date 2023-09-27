@@ -8,6 +8,8 @@ public class EnemyAI : MonoBehaviour
     #region Links
     private NavMeshAgent agent;
 
+    private IEnumerator coroutine;
+
     [SerializeField]
     private Transform[] checkpoints;
 
