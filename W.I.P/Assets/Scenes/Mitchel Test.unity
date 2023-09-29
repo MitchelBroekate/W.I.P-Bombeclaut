@@ -510,7 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canCamMove: 1
   mouseSens: 50
-  playerBody: {fileID: 0}
+  playerBody: {fileID: 1220089899}
 --- !u!1 &1049288268
 GameObject:
   m_ObjectHideFlags: 0
