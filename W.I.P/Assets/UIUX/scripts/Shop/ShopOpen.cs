@@ -19,7 +19,8 @@ public class ShopOpen : MonoBehaviour
     public CamLook camLook;
     public Movement movement;
     float time;
-    public GameObject pivot;
+    public Transform pivot;
+    Vector3 pivotX;
     public float camCooldown;
     public AudioSource sFX;
     public AudioClip shopOpenSFX;
@@ -45,8 +46,9 @@ public class ShopOpen : MonoBehaviour
             }
             else
             {
-                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, pivot.transform.position, lerpTime * Time.deltaTime);
-                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, pivot.transform.rotation, lerpTime * Time.deltaTime);
+                mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, pivot.position, lerpTime * Time.deltaTime);
+                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, pivot.rotation, lerpTime * Time.deltaTime);
+                Debug.Log(pivot.rotation);
             }
         }
     }
@@ -66,7 +68,9 @@ public class ShopOpen : MonoBehaviour
             camLook.canCamMove = false;
             movement.canMove = false;
             canLerp = true;
-            
+            controls.Player.ShopTab.Disable();
+            StartCoroutine(CameraSnapUp());
+
             time = camCooldown;
         }
         else
@@ -78,14 +82,21 @@ public class ShopOpen : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             movement.canMove = true;
             canLerp = false;
-            StartCoroutine(CameraSnap());
+            controls.Player.ShopTab.Disable();
+            StartCoroutine(CameraSnapDown());
             time = camCooldown;
         }
     }
-    IEnumerator CameraSnap()
+    IEnumerator CameraSnapDown()
     {
         yield return new WaitForSeconds(camCooldown);
         camLook.canCamMove = true;
+        controls.Player.ShopTab.Enable();
+    }
+    IEnumerator CameraSnapUp()
+    {
+        yield return new WaitForSeconds(camCooldown);
+        controls.Player.ShopTab.Enable();
     }
     #endregion
 
