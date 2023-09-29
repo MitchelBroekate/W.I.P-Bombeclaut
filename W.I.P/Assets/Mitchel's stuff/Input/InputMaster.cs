@@ -71,6 +71,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PauseEsc"",
+                    ""type"": ""Value"",
+                    ""id"": ""941b044b-9890-4a5d-a07f-f87337ff9c23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""SprintStart"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1656ddc5-cf0d-479f-8513-a14688425a60"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseEsc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_SprintStart = m_Player.FindAction("SprintStart", throwIfNotFound: true);
         m_Player_ShopTab = m_Player.FindAction("ShopTab", throwIfNotFound: true);
+        m_Player_PauseEsc = m_Player.FindAction("PauseEsc", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +270,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_SprintStart;
     private readonly InputAction m_Player_ShopTab;
+    private readonly InputAction m_Player_PauseEsc;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -258,6 +280,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @SprintStart => m_Wrapper.m_Player_SprintStart;
         public InputAction @ShopTab => m_Wrapper.m_Player_ShopTab;
+        public InputAction @PauseEsc => m_Wrapper.m_Player_PauseEsc;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,6 +305,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @ShopTab.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShopTab;
                 @ShopTab.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShopTab;
                 @ShopTab.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShopTab;
+                @PauseEsc.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseEsc;
+                @PauseEsc.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseEsc;
+                @PauseEsc.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseEsc;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -301,6 +327,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @ShopTab.started += instance.OnShopTab;
                 @ShopTab.performed += instance.OnShopTab;
                 @ShopTab.canceled += instance.OnShopTab;
+                @PauseEsc.started += instance.OnPauseEsc;
+                @PauseEsc.performed += instance.OnPauseEsc;
+                @PauseEsc.canceled += instance.OnPauseEsc;
             }
         }
     }
@@ -312,5 +341,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnSprintStart(InputAction.CallbackContext context);
         void OnShopTab(InputAction.CallbackContext context);
+        void OnPauseEsc(InputAction.CallbackContext context);
     }
 }
