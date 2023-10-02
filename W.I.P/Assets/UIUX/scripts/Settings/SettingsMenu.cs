@@ -30,12 +30,12 @@ public class SettingsMenu : MonoBehaviour
     #region Sliders
     public void SFXSlider(float volumeS)
     {
-        audioMaster.SetFloat("volumeSFX", volumeS);
+
     }
 
     public void MusicSlider(float volumeM)
     {
-        audioMaster.SetFloat("volumeMusic", volumeM);
+
     }
     #endregion
 
