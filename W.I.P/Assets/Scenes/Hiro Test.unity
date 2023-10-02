@@ -259,6 +259,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book stack
       objectReference: {fileID: 0}
+    - target: {fileID: 3531976829508610200, guid: 2e804f2a05a3a10439f3962e0ebd1880,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 488cdea9aa93fbd41b4bebf79051f5ca, type: 2}
+    - target: {fileID: 6281844486009141970, guid: 2e804f2a05a3a10439f3962e0ebd1880,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 488cdea9aa93fbd41b4bebf79051f5ca, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e804f2a05a3a10439f3962e0ebd1880, type: 3}
 --- !u!4 &174722673 stripped
@@ -597,7 +607,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: beab689330302d24da3ef417a460054d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.636547
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: beab689330302d24da3ef417a460054d,
         type: 3}
@@ -607,7 +617,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: beab689330302d24da3ef417a460054d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.358822
+      value: 23.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: beab689330302d24da3ef417a460054d,
         type: 3}
