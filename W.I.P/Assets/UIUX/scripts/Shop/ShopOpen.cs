@@ -14,10 +14,12 @@ public class ShopOpen : MonoBehaviour
     public Transform camEndPos;
     public float lerpTime;
     public bool shopIsOpen = false;
+    public bool pauseMenuBlock;
     bool canLerp;
     InputMaster controls;
     public CamLook camLook;
     public Movement movement;
+    public PauseScript pauseScript;
     float time;
     public Transform pivot;
     Vector3 pivotX;
@@ -56,34 +58,40 @@ public class ShopOpen : MonoBehaviour
     #region Shop actions
     private void OpenShop()
     {
-        if (!shopIsOpen)
+        if(!pauseMenuBlock)
         {
-            camStartPos = mainCam.transform;
-            sFX.clip = shopOpenSFX;
-            sFX.Play();
-            shop.SetActive(true);
-            shopIsOpen = true;
-            Cursor.lockState = CursorLockMode.None;
-            camLook.canCamMove = false;
-            movement.canMove = false;
-            canLerp = true;
-            controls.Player.ShopTab.Disable();
-            StartCoroutine(CameraSnapUp());
+            if (!shopIsOpen)
+            {
+                camStartPos = mainCam.transform;
+                sFX.clip = shopOpenSFX;
+                sFX.Play();
+                shop.SetActive(true);
+                shopIsOpen = true;
+                pauseScript.shopOpenBlock = true;
+                Cursor.lockState = CursorLockMode.None;
+                camLook.canCamMove = false;
+                movement.canMove = false;
+                canLerp = true;
+                controls.Player.ShopTab.Disable();
+                StartCoroutine(CameraSnapUp());
 
-            time = camCooldown;
-        }
-        else
-        {
-            sFX.clip = shopCloseSFX;
-            sFX.Play();
-            shop.SetActive(false);
-            shopIsOpen = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            movement.canMove = true;
-            canLerp = false;
-            controls.Player.ShopTab.Disable();
-            StartCoroutine(CameraSnapDown());
-            time = camCooldown;
+                time = camCooldown;
+            }
+            else
+            {
+                sFX.clip = shopCloseSFX;
+                sFX.Play();
+                shop.SetActive(false);
+                shopIsOpen = false;
+                pauseScript.shopOpenBlock = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                movement.canMove = true;
+                canLerp = false;
+                controls.Player.ShopTab.Disable();
+                StartCoroutine(CameraSnapDown());
+
+                time = camCooldown;
+            }
         }
     }
     IEnumerator CameraSnapDown()

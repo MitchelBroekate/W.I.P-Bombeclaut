@@ -7,32 +7,44 @@ public class PauseScript : MonoBehaviour
     InputMaster controls;
     public GameObject pauzeMenu;
     public bool pauzeIsOpen = false;
+    public bool shopOpenBlock;
     public CamLook camLook;
     public Movement movement;
+    public ShopOpen shopScript;
+    public GameObject[] buttons;
+
+    public Vector3 startFontSize;
 
     private void Awake()
     {
         controls = new InputMaster();
-        controls.Player.PauseEsc.performed += x => PauseGame(); 
+        controls.Player.PauseEsc.performed += x => PauseGame();
+        startFontSize = transform.localScale;
     }
 
     private void PauseGame()
     {
-        if (!pauzeIsOpen)
+        if(!shopOpenBlock)
         {
-            pauzeMenu.SetActive(true);
-            pauzeIsOpen = true;
-            camLook.canCamMove = false;
-            movement.canMove = false;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            pauzeMenu.SetActive(false);
-            pauzeIsOpen = false;
-            camLook.canCamMove = true;
-            movement.canMove = true;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (!pauzeIsOpen)
+            {
+                pauzeMenu.SetActive(true);
+                pauzeIsOpen = true;
+                camLook.canCamMove = false;
+                movement.canMove = false;
+                Cursor.lockState = CursorLockMode.None;
+                shopScript.pauseMenuBlock = true;
+            }
+            else
+            {
+                pauzeMenu.SetActive(false);
+                pauzeIsOpen = false;
+                camLook.canCamMove = true;
+                movement.canMove = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                shopScript.pauseMenuBlock = false;
+                Resize();
+            }
         }
     }
     private void OnEnable()
@@ -43,5 +55,12 @@ public class PauseScript : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
+    }
+    public void Resize()
+    {
+        foreach (GameObject button in buttons)
+        {
+            button.transform.localScale = startFontSize;
+        }
     }
 }
