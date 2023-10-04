@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonPauseMenu : MonoBehaviour
 {
+    public GameObject volume;
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject areYouSureScreen;
@@ -24,6 +25,7 @@ public class ButtonPauseMenu : MonoBehaviour
     }
     public void ResumeButton()
     {
+        volume.SetActive(false);
         pauseMenu.SetActive(false);
         pauseScript.pauzeIsOpen = false;
         camLook.canCamMove = true;
