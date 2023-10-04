@@ -9,6 +9,8 @@ public class SettingsMenu : MonoBehaviour
 {
     #region Links
     public AudioMixer audioMaster;
+    public Slider musicSliderVar;
+    public Slider sfxSliderVar;
 
     public TMP_Dropdown resDropDown;
     public Resolution[] resolutions;
@@ -24,18 +26,24 @@ public class SettingsMenu : MonoBehaviour
     private void Start()
     {
         Res();
+
+        sfxSliderVar.value = PlayerPrefs.GetFloat("VolumeSfxPp", 1f);
+        musicSliderVar.value = PlayerPrefs.GetFloat("VolumeMusicPp", 1f);
+        
     }
     #endregion
 
     #region Sliders
     public void SFXSlider(float volumeS)
     {
-
+        audioMaster.SetFloat("volumeSFX", Mathf.Log10(volumeS) * 20);
+        PlayerPrefs.SetFloat("VolumeSfxPp", volumeS);
     }
 
     public void MusicSlider(float volumeM)
     {
-
+        audioMaster.SetFloat("volumeMusic", Mathf.Log10(volumeM) * 20);
+        PlayerPrefs.SetFloat("VolumeMusicPp", volumeM);
     }
     #endregion
 
