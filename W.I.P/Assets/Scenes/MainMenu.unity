@@ -4332,8 +4332,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 625762822}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -6163,6 +6163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMaster: {fileID: 24100000, guid: a92232fecbad5174a8f4280a98baf035, type: 2}
+  musicSliderVar: {fileID: 2132017115}
+  sfxSliderVar: {fileID: 1422351175}
   resDropDown: {fileID: 1287769325}
   currentRes: 0
   currentResIndex: 0
@@ -6249,8 +6251,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 645866783}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
