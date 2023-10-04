@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonPauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
+    public GameObject areYouSureScreen;
     public ShopOpen shopScript;
     public PauseScript pauseScript;
     public CamLook camLook;
@@ -27,6 +30,38 @@ public class ButtonPauseMenu : MonoBehaviour
         movement.canMove = true;
         Cursor.lockState = CursorLockMode.Locked;
         shopScript.pauseMenuBlock = false;
+        Resize();
+    }
+    public void SettingsButton()
+    {
+        pauseMenu.SetActive(false);
+        settingsMenu.SetActive(true);
+        pauseScript.shopOpenBlock = true;
+        Resize();
+    }
+    public void BackToMainMenu()
+    {
+        pauseMenu.SetActive(false);
+        areYouSureScreen.SetActive(true);
+        pauseScript.shopOpenBlock = true;
+        Resize();
+    }
+    public void AreYouSureYes()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void AreYouSureNo()
+    {
+        pauseMenu.SetActive(true);
+        areYouSureScreen.SetActive(false);
+        pauseScript.shopOpenBlock = false;
+        Resize();
+    }
+    public void BackToMainPause()
+    {
+        settingsMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        pauseScript.shopOpenBlock = false;
         Resize();
     }
     public void Resize()
