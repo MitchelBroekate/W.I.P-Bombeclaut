@@ -15,19 +15,18 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private GameObject antEnemy, spiderEnemy;
 
-    public bool tutWave, wave1, wave2;
+    public bool tutWave, wave1 = false, wave2 = false;
 
-    private float waitTime = 1f;
-
-    private Vector3 spawnpoint;
+    [SerializeField]
+    private float waitTime = 10f;
     #endregion
 
     #region Awake and update
+
     private void Awake()
     {
         tutWave = true;
     }
-
     private void Update()
     {
         WaveChecks();
@@ -62,8 +61,8 @@ public class WaveSystem : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                antEnemy  = Instantiate(pAnt);
-                antEnemy.transform.position = spawnpoint;
+                antEnemy = Instantiate(pAnt);
+                antEnemy.transform.position = spawn.position;
 
                 yield return new WaitForSeconds(interval);
             }
