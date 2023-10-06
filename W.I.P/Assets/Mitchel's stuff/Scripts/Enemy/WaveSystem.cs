@@ -7,7 +7,7 @@ public class WaveSystem : MonoBehaviour
 {
     #region Links
     [SerializeField]
-    private Transform spawn;
+    private GameObject spawn;
 
     [SerializeField]
     private GameObject pAnt, pSpider;
@@ -15,17 +15,13 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private GameObject antEnemy, spiderEnemy;
 
-    public bool tutWave, wave1 = false, wave2 = false;
-
-    [SerializeField]
-    private float waitTime = 10f;
+    public bool tutWave = false, wave1 = false, wave2 = false;
     #endregion
 
     #region Awake and update
-
     private void Awake()
     {
-        tutWave = true;
+        wave1 = true;
     }
     private void Update()
     {
@@ -36,50 +32,96 @@ public class WaveSystem : MonoBehaviour
     #region Checking waves
     private void WaveChecks()
     {
-
         if (tutWave)
         {
-            StartCoroutine(SpawnWaves(waitTime));
+            StartCoroutine(SpawnWaves());
+
+            tutWave = false;
         }
 
         if (wave1)
         {
-            StartCoroutine(SpawnWaves(waitTime));
+            StartCoroutine(SpawnWaves());
+
+            wave1 = false;
         }
 
         if (wave2)
         {
-            StartCoroutine(SpawnWaves(waitTime));
+            StartCoroutine(SpawnWaves());
+
+            wave2 = false;
         }
     }
     #endregion
 
     #region Wave spawn interval IEn
-    public IEnumerator SpawnWaves(float interval)
+    public IEnumerator SpawnWaves()
     {
         if (tutWave)
         {
             for (int i = 0; i < 10; i++)
             {
-                antEnemy = Instantiate(pAnt);
-                antEnemy.transform.position = spawn.position;
+                antEnemy = Instantiate(pAnt, spawn.transform);
 
-                yield return new WaitForSeconds(interval);
+                yield return new WaitForSeconds(1);
             }
         }
 
         if (wave1)
         {
+            for(int i = 0;i < 3; i++)
+            {
+                antEnemy = Instantiate(pAnt, spawn.transform);
 
-            yield return new WaitForSeconds(interval);
+                yield return new WaitForSeconds(2);
+            }
+
+            spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+            for(int i = 0;i < 3 ; i++)
+            {
+                antEnemy = Instantiate(pAnt, spawn.transform);
+
+                yield return new WaitForSeconds(2);
+            }
+
+            spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+            for (int i = 0;i < 3 ; i++)
+            {
+                antEnemy = Instantiate(pAnt, spawn.transform);
+
+                yield return new WaitForSeconds(2);
+            }
+
+            spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+            for (int i = 0; i < 3; i++)
+            {
+                antEnemy = Instantiate(pAnt, spawn.transform);
+
+                yield return new WaitForSeconds(2);
+            }
+
+            spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+            for (int i = 0; i < 3; i++)
+            {
+                antEnemy = Instantiate(pAnt, spawn.transform);
+
+                yield return new WaitForSeconds(2);
+            }
+
+            spiderEnemy = Instantiate(pSpider, spawn.transform);
+
         }
 
         if (wave2)
         {
 
-            yield return new WaitForSeconds(interval);
-        }
 
+        }
     }
     #endregion
 }
