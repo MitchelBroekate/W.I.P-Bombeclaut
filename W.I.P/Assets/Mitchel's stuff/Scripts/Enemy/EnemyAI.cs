@@ -8,6 +8,9 @@ public class EnemyAI : MonoBehaviour
     #region Links
     private NavMeshAgent agent;
 
+    private GameObject waypointsP;
+    private int amountOfPoints;
+
     [SerializeField]
     private Transform[] checkpoints;
 
@@ -18,12 +21,16 @@ public class EnemyAI : MonoBehaviour
     #region Awake and Update
     private void Awake()
     {
+        waypointsP = GameObject.Find("Checkpoints");
+        amountOfPoints = waypointsP.transform.childCount;
+
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
     }
 
     private void Update()
     {
+        PrefabLink();
         NextPoint();
     }
     #endregion
@@ -43,5 +50,13 @@ public class EnemyAI : MonoBehaviour
         }
     }
     #endregion
+
+    private void PrefabLink()
+    {
+        for (int i = 0; i < waypointsP.transform.childCount; i++)
+        {
+            checkpoints[i] = waypointsP.transform.GetChild(i).transform;
+        }
+    }
 
 }
