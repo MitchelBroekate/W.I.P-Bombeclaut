@@ -9,7 +9,6 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
 
     private GameObject waypointsP;
-    private int amountOfPoints;
 
     [SerializeField]
     private Transform[] checkpoints;
@@ -22,7 +21,6 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         waypointsP = GameObject.Find("Checkpoints");
-        amountOfPoints = waypointsP.transform.childCount;
 
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
