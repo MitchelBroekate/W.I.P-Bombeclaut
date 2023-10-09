@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 411791752}
   pAnt: {fileID: 8569477633427957470, guid: bf45892a4665c1542801849219d12374, type: 3}
-  pSpider: {fileID: 0}
+  pSpider: {fileID: 6766653946536681922, guid: 2db6a4cf08a616c4fbbfb8faf98d2125, type: 3}
   antEnemy: {fileID: 0}
   spiderEnemy: {fileID: 0}
   tutWave: 0
@@ -364,37 +364,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1757478184}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &810429476
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 810429477}
-  m_Layer: 0
-  m_Name: Check (6)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &810429477
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810429476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.41, y: 130.8, z: -297.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1757478184}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1004361992
 GameObject:
@@ -712,7 +681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268505922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.38, y: 130.8, z: -291.89}
+  m_LocalPosition: {x: -64.38, y: 130.8, z: -299.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1062,7 +1031,6 @@ Transform:
   - {fileID: 1786792391}
   - {fileID: 96908701}
   - {fileID: 1268505923}
-  - {fileID: 810429477}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
