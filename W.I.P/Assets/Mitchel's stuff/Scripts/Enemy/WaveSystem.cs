@@ -29,7 +29,7 @@ public class WaveSystem : MonoBehaviour
     }
     #endregion
 
-    #region Checking waves
+    //Checks to start the Waves
     private void WaveChecks()
     {
         if (tutWave)
@@ -53,9 +53,8 @@ public class WaveSystem : MonoBehaviour
             wave2 = false;
         }
     }
-    #endregion
 
-    #region Wave spawn interval IEn
+    //IEnumerator for enemy spawning with intervals
     public IEnumerator SpawnWaves()
     {
         if (tutWave)
@@ -78,15 +77,7 @@ public class WaveSystem : MonoBehaviour
             }
 
             spiderEnemy = Instantiate(pSpider, spawn.transform);
-
-            for(int i = 0;i < 3 ; i++)
-            {
-                antEnemy = Instantiate(pAnt, spawn.transform);
-
-                yield return new WaitForSeconds(2);
-            }
-
-            spiderEnemy = Instantiate(pSpider, spawn.transform);
+            yield return new WaitForSeconds(2);
 
             for (int i = 0;i < 3 ; i++)
             {
@@ -96,6 +87,17 @@ public class WaveSystem : MonoBehaviour
             }
 
             spiderEnemy = Instantiate(pSpider, spawn.transform);
+            yield return new WaitForSeconds(2);
+
+            for (int i = 0;i < 3 ; i++)
+            {
+                antEnemy = Instantiate(pAnt, spawn.transform);
+
+                yield return new WaitForSeconds(2);
+            }
+
+            spiderEnemy = Instantiate(pSpider, spawn.transform);
+            yield return new WaitForSeconds(2);
 
             for (int i = 0; i < 3; i++)
             {
@@ -105,6 +107,7 @@ public class WaveSystem : MonoBehaviour
             }
 
             spiderEnemy = Instantiate(pSpider, spawn.transform);
+            yield return new WaitForSeconds(2);
 
             for (int i = 0; i < 3; i++)
             {
@@ -114,7 +117,7 @@ public class WaveSystem : MonoBehaviour
             }
 
             spiderEnemy = Instantiate(pSpider, spawn.transform);
-
+            yield return new WaitForSeconds(2);
         }
 
         if (wave2)
@@ -123,5 +126,5 @@ public class WaveSystem : MonoBehaviour
 
         }
     }
-    #endregion
+
 }
