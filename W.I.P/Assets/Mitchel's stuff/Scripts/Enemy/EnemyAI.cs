@@ -42,7 +42,11 @@ public class EnemyAI : MonoBehaviour
 
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
-
+                if(currentDest > checkpoints.Length)
+                {
+                    agent.isStopped = true;
+                }
+                else
                 currentDest += 1;
             }
         }
