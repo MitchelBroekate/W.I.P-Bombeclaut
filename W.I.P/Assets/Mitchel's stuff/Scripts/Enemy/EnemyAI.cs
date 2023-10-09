@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     }
     #endregion
 
-    #region Destination changing
+    //Change destination of enemy
     private void NextPoint()
     {
         if (currentDest != checkpoints.Length)
@@ -42,17 +42,16 @@ public class EnemyAI : MonoBehaviour
 
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
-                if(currentDest > checkpoints.Length)
-                {
-                    agent.isStopped = true;
-                }
-                else
-                currentDest += 1;
+                    currentDest++;
             }
         }
+        else
+        {
+            agent.isStopped = true;
+        }
     }
-    #endregion
 
+    //Linking prefabs index array
     private void PrefabLink()
     {
         for (int i = 0; i < waypointsP.transform.childCount; i++)
