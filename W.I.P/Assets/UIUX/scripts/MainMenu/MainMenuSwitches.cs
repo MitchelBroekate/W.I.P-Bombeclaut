@@ -21,6 +21,7 @@ public class MainMenuSwitches : MonoBehaviour
     public void Start()
     {
         startFontSize = transform.localScale;
+        SceneManager.LoadScene(4, LoadSceneMode.Additive);
     }
     public void StartGameSwitch()
     {
