@@ -40,7 +40,7 @@ public class EnemyAI : MonoBehaviour
         {
             agent.destination = checkpoints[currentDest].position;
 
-            if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            if (!agent.pathPending && agent.remainingDistance < 0.2f)
             {
                     currentDest++;
             }
