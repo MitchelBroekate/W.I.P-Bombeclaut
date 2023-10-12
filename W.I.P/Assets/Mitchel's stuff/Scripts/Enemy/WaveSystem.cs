@@ -16,11 +16,15 @@ public class WaveSystem : MonoBehaviour
     private GameObject antEnemy, spiderEnemy;
 
     [SerializeField]
-    int waveStarter = 0;
+    private int waveStarter = 0;
 
-    public bool tutWave = false, wave1 = false, wave2 = false;
+    private bool tutWave = false, wave1 = false, wave2 = false;
     #endregion
 
+    private void Update()
+    {
+        WaveChecks();
+    }
 
     //Checks to start the Waves
     private void WaveChecks()
@@ -28,6 +32,7 @@ public class WaveSystem : MonoBehaviour
         switch (waveStarter)
         {
             case 1:
+                Debug.Log("startwave");
                 tutWave = true;
                 StartCoroutine(SpawnWaves());
                 tutWave = false;
@@ -44,6 +49,14 @@ public class WaveSystem : MonoBehaviour
                 StartCoroutine(SpawnWaves());
                 wave2 = false;
                 break;
+        }
+    }
+
+    public void ReadyWave()
+    {
+        if (spawn.transform.childCount == 0)
+        {
+            waveStarter++;
         }
     }
 
