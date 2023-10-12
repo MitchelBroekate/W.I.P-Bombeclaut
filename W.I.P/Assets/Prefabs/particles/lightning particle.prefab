@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8336344202433025953}
   - component: {fileID: 7089135538341678761}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: lightning particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
