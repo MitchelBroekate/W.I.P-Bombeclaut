@@ -15,44 +15,53 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private GameObject antEnemy, spiderEnemy;
 
-    public bool tutWave = false, wave1 = false, wave2 = false;
+    [SerializeField]
+    private int waveStarter = 0;
+
+    private bool tutWave = false, wave1 = false, wave2 = false;
     #endregion
 
-    #region Awake and update
-    private void Awake()
-    {
-        wave1 = true;
-    }
     private void Update()
     {
         WaveChecks();
     }
-    #endregion
 
     //Checks to start the Waves
     private void WaveChecks()
     {
-        if (tutWave)
+        switch (waveStarter)
         {
-            StartCoroutine(SpawnWaves());
+            case 1:
+                Debug.Log("startwave");
+                tutWave = true;
+                StartCoroutine(SpawnWaves());
+                tutWave = false;
+                break;
 
-            tutWave = false;
-        }
+            case 2:
+                wave1 = true;
+                StartCoroutine(SpawnWaves());
+                wave1 = false;
+                break;
 
-        if (wave1)
-        {
-            StartCoroutine(SpawnWaves());
-
-            wave1 = false;
-        }
-
-        if (wave2)
-        {
-            StartCoroutine(SpawnWaves());
-
-            wave2 = false;
+            case 3:
+                wave2 = true;
+                StartCoroutine(SpawnWaves());
+                wave2 = false;
+                break;
         }
     }
+
+    public void ReadyWave()
+    {
+        if (spawn.transform.childCount == 0)
+        {
+            waveStarter++;
+        }
+    }
+
+
+
 
     //IEnumerator for enemy spawning with intervals
     public IEnumerator SpawnWaves()

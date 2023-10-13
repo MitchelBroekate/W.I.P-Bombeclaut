@@ -80,6 +80,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""WaveStarter"",
+                    ""type"": ""Value"",
+                    ""id"": ""a31b4d99-4178-45c4-88c8-86adb28de074"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -192,6 +201,17 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""ShopTab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ec4de8a-96b2-4a77-8a31-9b7b0494b5aa"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaveStarter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +226,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_SprintStart = m_Player.FindAction("SprintStart", throwIfNotFound: true);
         m_Player_ShopTab = m_Player.FindAction("ShopTab", throwIfNotFound: true);
         m_Player_PauseEsc = m_Player.FindAction("PauseEsc", throwIfNotFound: true);
+        m_Player_WaveStarter = m_Player.FindAction("WaveStarter", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +292,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SprintStart;
     private readonly InputAction m_Player_ShopTab;
     private readonly InputAction m_Player_PauseEsc;
+    private readonly InputAction m_Player_WaveStarter;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -281,6 +303,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @SprintStart => m_Wrapper.m_Player_SprintStart;
         public InputAction @ShopTab => m_Wrapper.m_Player_ShopTab;
         public InputAction @PauseEsc => m_Wrapper.m_Player_PauseEsc;
+        public InputAction @WaveStarter => m_Wrapper.m_Player_WaveStarter;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +331,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @PauseEsc.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseEsc;
                 @PauseEsc.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseEsc;
                 @PauseEsc.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseEsc;
+                @WaveStarter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveStarter;
+                @WaveStarter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveStarter;
+                @WaveStarter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveStarter;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -330,6 +356,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @PauseEsc.started += instance.OnPauseEsc;
                 @PauseEsc.performed += instance.OnPauseEsc;
                 @PauseEsc.canceled += instance.OnPauseEsc;
+                @WaveStarter.started += instance.OnWaveStarter;
+                @WaveStarter.performed += instance.OnWaveStarter;
+                @WaveStarter.canceled += instance.OnWaveStarter;
             }
         }
     }
@@ -342,5 +371,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnSprintStart(InputAction.CallbackContext context);
         void OnShopTab(InputAction.CallbackContext context);
         void OnPauseEsc(InputAction.CallbackContext context);
+        void OnWaveStarter(InputAction.CallbackContext context);
     }
 }
