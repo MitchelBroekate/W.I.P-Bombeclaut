@@ -85,7 +85,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""name"": ""WaveStarter"",
                     ""type"": ""Value"",
                     ""id"": ""a31b4d99-4178-45c4-88c8-86adb28de074"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

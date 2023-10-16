@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -54,9 +55,12 @@ public class WaveSystem : MonoBehaviour
 
     public void ReadyWave()
     {
-        if (spawn.transform.childCount == 0)
+        if ()
         {
-            waveStarter++;
+            if (spawn.transform.childCount < 1)
+            {
+                waveStarter++;
+            }
         }
     }
 
