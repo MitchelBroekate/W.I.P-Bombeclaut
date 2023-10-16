@@ -47,7 +47,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            agent.isStopped = true;
+            Destroy(gameObject);
         }
     }
 

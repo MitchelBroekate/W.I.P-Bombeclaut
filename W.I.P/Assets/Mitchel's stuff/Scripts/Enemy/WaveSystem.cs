@@ -19,7 +19,7 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private int waveStarter = 0;
 
-    private bool tutWave = false, wave1 = false, wave2 = false;
+    private bool tutWave = false, wave1 = false, wave2 = false, case1 = true, case2 = true, case3 = true;
     #endregion
 
     private void Update()
@@ -33,22 +33,36 @@ public class WaveSystem : MonoBehaviour
         switch (waveStarter)
         {
             case 1:
-                Debug.Log("startwave");
-                tutWave = true;
-                StartCoroutine(SpawnWaves());
-                tutWave = false;
+                if (case1)
+                {
+                    tutWave = true;
+                    StartCoroutine(SpawnWaves());
+                    tutWave = false;
+                    case1 = false;
+                }
+
                 break;
 
             case 2:
-                wave1 = true;
-                StartCoroutine(SpawnWaves());
-                wave1 = false;
+                if (case2)
+                {
+                    wave1 = true;
+                    StartCoroutine(SpawnWaves());
+                    wave1 = false;
+                    case2 = false;
+                }
+                
                 break;
 
             case 3:
-                wave2 = true;
-                StartCoroutine(SpawnWaves());
-                wave2 = false;
+                if (case3)
+                {
+                    wave2 = true;
+                    StartCoroutine(SpawnWaves());
+                    wave2 = false;
+                    case3 = false;
+                }
+
                 break;
         }
     }
