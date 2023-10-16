@@ -53,9 +53,9 @@ public class WaveSystem : MonoBehaviour
         }
     }
 
-    public void ReadyWave()
+    public void ReadyWave(InputAction.CallbackContext context)
     {
-        if ()
+        if (context.performed)
         {
             if (spawn.transform.childCount < 1)
             {
