@@ -29,13 +29,15 @@ public class ShopOpen : MonoBehaviour
     public AudioClip shopCloseSFX;
     #endregion
 
-    #region Awake and update
+    //Awake for InputMaster and shop keybind
     private void Awake()
     {
         controls = new InputMaster();
         movement = GetComponent<Movement>();
         controls.Player.ShopTab.performed += x => OpenShop();
     }
+
+    //Update for Lerp to the top view cam
     private void Update()
     {
         time -= Time.deltaTime;
@@ -53,7 +55,6 @@ public class ShopOpen : MonoBehaviour
             }
         }
     }
-    #endregion
 
     #region Shop actions
     private void OpenShop()

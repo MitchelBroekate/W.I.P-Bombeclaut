@@ -2696,7 +2696,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 429211236}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636445397}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: MouseTrapButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &429211236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4061,6 +4073,7 @@ GameObject:
   - component: {fileID: 636445392}
   - component: {fileID: 636445394}
   - component: {fileID: 636445395}
+  - component: {fileID: 636445397}
   - component: {fileID: 636445396}
   m_Layer: 0
   m_Name: Player
@@ -4263,6 +4276,21 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &636445397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636445386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e537b7488c0a51a4c993dc0c0d7ac599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opDuracell: 0
+  opMouseTrap: 0
+  opSpray: 0
 --- !u!1 &643375812
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,7 +5369,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 836100349}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636445397}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: DuracellButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &836100349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8658,7 +8698,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61
+  m_fontSize: 61.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11903,7 +11943,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2005856594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636445397}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: SprayButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2005856594
 MonoBehaviour:
   m_ObjectHideFlags: 0
