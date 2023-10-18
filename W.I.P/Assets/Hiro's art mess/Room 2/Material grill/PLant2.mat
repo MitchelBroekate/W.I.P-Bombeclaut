@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8682475238088692917
+--- !u!114 &-2659199551669862304
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Corner cabinet
+  m_Name: PLant2
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ValidKeywords:
   - _METALLICSPECGLOSSMAP
@@ -37,11 +37,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 81d7a045d4f021b4783b23efda3aa436, type: 3}
+        m_Texture: {fileID: 2800000, guid: 71743042f29eb2e4299adba365dd3f6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 29bd74fb45aa18240aeace93bcbe9cb0, type: 3}
+        m_Texture: {fileID: 2800000, guid: b45c6a103e2ce2f42b3739ef9cf6dafc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -61,11 +61,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 81d7a045d4f021b4783b23efda3aa436, type: 3}
+        m_Texture: {fileID: 2800000, guid: 71743042f29eb2e4299adba365dd3f6b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: db7888c33c3fb7f45b262751961a14c6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 746fb468166f3d3429d969716cd70d7b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
