@@ -24,6 +24,7 @@ public class ButtonPauseMenu : MonoBehaviour
     }
     public void ResumeButton()
     {
+        Time.timeScale = 1.0f;
         volume.SetActive(false);
         pauseMenu.SetActive(false);
         pauseScript.pauzeIsOpen = false;

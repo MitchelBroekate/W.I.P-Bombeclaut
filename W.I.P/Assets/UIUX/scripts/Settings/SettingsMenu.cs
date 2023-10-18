@@ -19,30 +19,28 @@ public class SettingsMenu : MonoBehaviour
 
     public float currentRes;
     public int currentResIndex = 0;
-    float fullCheck;
+    bool fullCheck;
 
     Resolution[] res;
     #endregion
 
-    #region Start and Update
+    #region Start
     private void Start()
     {
         Res();
 
+        fullCheck = false;
         sfxSliderVar.value = PlayerPrefs.GetFloat("VolumeSfxPp", 1f);
         musicSliderVar.value = PlayerPrefs.GetFloat("VolumeMusicPp", 1f);
-        fullCheck = PlayerPrefs.GetFloat("FullScreenPp", 1);
-    }
-    private void Update()
-    {
-        if (fullCheck == 0)
+        if (PlayerPrefs.GetInt("FullScreenPp") == 1)
         {
-            fullScreenToggle.isOn = false;
+            fullCheck = true;
         }
         else
         {
-            fullScreenToggle.isOn = true;
+            fullCheck = false;
         }
+        fullScreenToggle.isOn = fullCheck;
     }
     #endregion
 
@@ -58,25 +56,20 @@ public class SettingsMenu : MonoBehaviour
         audioMaster.SetFloat("volumeMusic", Mathf.Log10(volumeM) * 20);
         PlayerPrefs.SetFloat("VolumeMusicPp", volumeM);
     }
-    public void FullScreenpp(float fullscreen)
-    {
-        PlayerPrefs.SetFloat("FullScreenPp", fullscreen);
-    }
     #endregion
 
     #region Fullscreen
     public void ScreenFull(bool isMainFull)
     {
         Screen.fullScreen = isMainFull;
-        FullScreenpp(fullCheck);
         Debug.Log(fullCheck);
-        if (fullCheck == 1)
+        if (fullScreenToggle.isOn)
         {
-            fullCheck = 0;
+            PlayerPrefs.SetInt("FullScreenPp", 1);
         }
         else
         {
-            fullCheck = 1;
+            PlayerPrefs.SetInt("FullScreenPp", 0);
         }
     }
     #endregion
@@ -121,6 +114,10 @@ public class SettingsMenu : MonoBehaviour
         Resolution resolution = filteredRes[resolutionIndex];
         Debug.Log(resolution.width + "+" + resolution.height);
         Screen.SetResolution(resolution.width, resolution.height, true);
+        if(!fullScreenToggle.isOn)
+        {
+            ScreenFull(false);
+        }
     }
     #endregion
 }

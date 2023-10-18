@@ -32,6 +32,7 @@ public class PauseScript : MonoBehaviour
         {
             if (!pauzeIsOpen)
             {
+                Time.timeScale = 0.0f;
                 pauzeMenu.SetActive(true);
                 hUD.SetActive(false);
                 volume.SetActive(true);
@@ -43,6 +44,7 @@ public class PauseScript : MonoBehaviour
             }
             else
             {
+                Time.timeScale = 1.0f;
                 pauzeMenu.SetActive(false);
                 hUD.SetActive(true);
                 volume.SetActive(false);
