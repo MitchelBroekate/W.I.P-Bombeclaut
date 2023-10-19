@@ -9,6 +9,7 @@ public class MainMenuSwitches : MonoBehaviour
     public AudioSource sFX;
     public AudioClip whoosh;
 
+    public GameObject fadeInObject;
     public GameObject mainMenu;
     public GameObject settings;
     public GameObject credits;
@@ -31,7 +32,7 @@ public class MainMenuSwitches : MonoBehaviour
     }
     public IEnumerator FadeIn()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.4f);
         SceneManager.LoadScene("LoadingScreen");
     }
     public void SettingsSwitch()

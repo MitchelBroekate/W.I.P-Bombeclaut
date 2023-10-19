@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.SceneManagement;
 
 public class ButtonPauseMenu : MonoBehaviour
 {
+    public GameObject hUD;
     public GameObject volume;
     public GameObject pauseMenu;
     public GameObject settingsMenu;
@@ -27,6 +29,7 @@ public class ButtonPauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         volume.SetActive(false);
         pauseMenu.SetActive(false);
+        hUD.SetActive(false);
         pauseScript.pauzeIsOpen = false;
         camLook.canCamMove = true;
         movement.canMove = true;
@@ -50,7 +53,7 @@ public class ButtonPauseMenu : MonoBehaviour
     }
     public void AreYouSureYes()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(1);
     }
     public void AreYouSureNo()
     {

@@ -5306,6 +5306,7 @@ GameObject:
   - component: {fileID: 1931208741}
   - component: {fileID: 1931208740}
   - component: {fileID: 1931208742}
+  - component: {fileID: 1931208743}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5463,6 +5464,19 @@ PlayableDirector:
     value: {fileID: 902092470}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1931208743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931208736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5752302ca675b4897c33abf8c10d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bGAnimation: {fileID: 1931208742}
 --- !u!1 &1962327603
 GameObject:
   m_ObjectHideFlags: 0
