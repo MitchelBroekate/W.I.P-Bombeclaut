@@ -54,6 +54,7 @@ public class ButtonPauseMenu : MonoBehaviour
     public void AreYouSureYes()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1.0f;
     }
     public void AreYouSureNo()
     {
