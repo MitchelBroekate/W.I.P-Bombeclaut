@@ -2536,6 +2536,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788486286}
   m_CullTransparentMesh: 1
+--- !u!1 &1812220843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812220844}
+  m_Layer: 0
+  m_Name: placementPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1812220844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812220843}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -43.28, y: 2.17, z: -16.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1919354641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,14 +2935,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duracellO: {fileID: 1058567539}
-  mouseTrapO: {fileID: 0}
-  sprayO: {fileID: 0}
-  henryO: {fileID: 0}
-  duracellP: {fileID: 0}
-  mouseTrapP: {fileID: 0}
-  sprayP: {fileID: 0}
-  henryP: {fileID: 0}
-  placementPos: {fileID: 0}
+  mouseTrapO: {fileID: 422991000}
+  sprayO: {fileID: 1919709205}
+  henryO: {fileID: 1514992759}
+  duracellP: {fileID: 233942913}
+  mouseTrapP: {fileID: 2133730041}
+  sprayP: {fileID: 122363221}
+  henryP: {fileID: 1269447267}
+  placementPos: {fileID: 1812220843}
   cam: {fileID: 1226039638}
   opDuracell: 0
   opMouseTrap: 0
