@@ -126,7 +126,7 @@ public class TowerPlacement : MonoBehaviour
                 {
                     followMouse.transform.position = startOpPos;
 
-                    Instantiate(mousePlacement, placementPos.transform);
+                    Instantiate(mousePlacement, hit.point, Quaternion.identity);
 
                     placeSwitchCheck = false;
                 }
