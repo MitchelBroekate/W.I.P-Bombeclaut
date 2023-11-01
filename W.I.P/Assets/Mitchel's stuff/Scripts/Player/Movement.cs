@@ -12,7 +12,9 @@ public class Movement : MonoBehaviour
     public bool canMove = true;
 
     [SerializeField]
-    private float moveSpeed = 7;
+    private float moveSpeed;
+
+    private float walkSpeed;
 
     [SerializeField]
     private CharacterController controller;
@@ -27,7 +29,7 @@ public class Movement : MonoBehaviour
         controls = new InputMaster();
         controls.Player.SprintStart.performed += x => isSprinting = true;
         controls.Player.SprintStart.canceled += x => isSprinting = false;
-
+        walkSpeed = moveSpeed;
     }
 
     void Update()
@@ -60,11 +62,11 @@ public class Movement : MonoBehaviour
     {
         if (isSprinting)
         {
-            moveSpeed = 10;
+            moveSpeed = 2;
         }
         else
         {
-            moveSpeed = 7;
+            moveSpeed = walkSpeed;
         }
     }
 
