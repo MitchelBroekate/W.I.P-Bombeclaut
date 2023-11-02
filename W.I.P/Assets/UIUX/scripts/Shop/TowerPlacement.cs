@@ -19,33 +19,18 @@ public class TowerPlacement : MonoBehaviour
     private Camera cam;
 
     [SerializeField]
+    private GameObject shop;
+
+    [SerializeField]
     private bool opDuracell, opMouseTrap, opSpray, opHenry;
 
     private bool placeSwitchCheck;
 
     Vector3 startOpPos;
 
-    private PlacementSwitch place;
-
-    InputMaster controls;
-
     Ray ray;
     RaycastHit hit;
-    enum PlacementSwitch
-    {
-        duracell,
-        mouseTrap,
-        spray,
-        henry,
-        placed
-    }
     #endregion
-
-    //Awake for linking the player input
-    private void Awake()
-    {
-        controls = new InputMaster();
-    }
 
     //start for start possition for towerselections to return to
     private void Start()
@@ -56,119 +41,42 @@ public class TowerPlacement : MonoBehaviour
     //Update to check when the state for the switch changes
     private void Update()
     {
-        SwitchPlacement();
+        PlaceTower();
     }
 
-    //Switch for placement checks for when you press one of the item buttons
-    private void SwitchPlacement()
-    {
-        switch (place)
-        {
-            case PlacementSwitch.duracell:
-
-                if (opDuracell)
-                {
-                    Debug.Log("Battery");
-
-                    followMouse = duracellO;
-                    mousePlacement = duracellP;
-
-                    MouseCorrection();
-                }
-
-                break;
-
-            case PlacementSwitch.mouseTrap:
-
-                if (opMouseTrap)
-                {
-                    Debug.Log("Trap");
-
-                    followMouse = mouseTrapO;
-                    mousePlacement = mouseTrapP;
-
-                    MouseCorrection();
-                }
-
-                break;
-
-            case PlacementSwitch.spray:
-
-                if (opSpray)
-                {
-                    Debug.Log("Spray");
-
-                    followMouse = sprayO;
-                    mousePlacement = sprayP;
-
-                    MouseCorrection();
-                }
-
-                break;
-
-            case PlacementSwitch.henry:
-
-                if (opHenry)
-                {
-                    Debug.Log("Henry");
-
-                    followMouse = henryO;
-                    mousePlacement = henryP;
-
-                    MouseCorrection();
-                }
-
-                break;
-
-            case PlacementSwitch.placed:
-
-                if (placeSwitchCheck)
-                {
-                    followMouse.transform.position = startOpPos;
-
-                    Instantiate(mousePlacement, hit.point, Quaternion.identity);
-
-                    placeSwitchCheck = false;
-                }
-
-                break;
-        }
-    }
 
     #region Voids that link to buttons and enable/disable functions
     public void DuracellButton()
     {
         opDuracell = !opDuracell;
-        opMouseTrap = false;
-        opSpray = false;
-        opHenry = false;
-        place = PlacementSwitch.duracell;
+
+        followMouse = duracellO;
+        mousePlacement = duracellP;
+
     }
 
     public void MouseTrapButton()
     {
         opMouseTrap = !opMouseTrap;
-        opSpray = false;
-        opHenry = false;
-        opDuracell = false;
-        place = PlacementSwitch.mouseTrap;
+
+        followMouse = mouseTrapO;
+        mousePlacement = mouseTrapP;
     }
 
     public void SprayButton()
     {
         opSpray = !opSpray;
-        opHenry = false;
-        opDuracell = false;
-        opMouseTrap = false;
-        place = PlacementSwitch.spray;
+
+        followMouse = sprayO;
+        mousePlacement = sprayP;
     }
     public void HenryButton()
     {
         opHenry = !opHenry;
-        opDuracell = false;
-        opMouseTrap = false;
-        opSpray = false;
-        place = PlacementSwitch.henry;
+
+        followMouse = henryO;
+        mousePlacement = henryP;
+
     }
     #endregion
 
@@ -184,7 +92,7 @@ public class TowerPlacement : MonoBehaviour
     }
 
     //A void for when you click to place a tower on that current possition
-    public void Placement()
+    public void PlacementMouse()
     {
         if(opDuracell || opHenry || opMouseTrap || opSpray)
         {
@@ -197,8 +105,29 @@ public class TowerPlacement : MonoBehaviour
 
             placementPos.transform.position = followMouse.transform.position;
 
-            place = PlacementSwitch.placed;
         }
 
     }
+
+    void PlaceTower()
+    {
+        if (placeSwitchCheck)
+        {
+            followMouse.transform.position = startOpPos;
+
+            Instantiate(mousePlacement, hit.point, Quaternion.identity);
+
+            placeSwitchCheck = false;
+
+            shop.SetActive(true);
+        }
+
+        if(opDuracell || opHenry || opMouseTrap || opSpray)
+        {
+            MouseCorrection();
+            shop.SetActive(false);
+        }
+    }
 }
+
+
