@@ -30,6 +30,9 @@ public class TowerPlacement : MonoBehaviour
 
     Ray ray;
     RaycastHit hit;
+
+    public ShopOpen shopScript;
+    public PauseScript pauseScript;
     #endregion
 
     //start for start possition for towerselections to return to
@@ -120,12 +123,16 @@ public class TowerPlacement : MonoBehaviour
             placeSwitchCheck = false;
 
             shop.SetActive(true);
+            shopScript.pauseMenuBlock = false;
+            pauseScript.shopOpenBlock = false;
         }
 
         if(opDuracell || opHenry || opMouseTrap || opSpray)
         {
             MouseCorrection();
             shop.SetActive(false);
+            shopScript.pauseMenuBlock = true;
+            pauseScript.shopOpenBlock = true;
         }
     }
 }
