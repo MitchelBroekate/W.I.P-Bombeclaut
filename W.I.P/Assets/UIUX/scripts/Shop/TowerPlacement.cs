@@ -91,6 +91,7 @@ public class TowerPlacement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100))
         {
             followMouse.transform.position = hit.point;
+            
         }
     }
 
@@ -114,7 +115,7 @@ public class TowerPlacement : MonoBehaviour
 
     void PlaceTower()
     {
-        if (placeSwitchCheck)
+        if (placeSwitchCheck && hit.transform.tag != "Path")
         {
             followMouse.transform.position = startOpPos;
 
