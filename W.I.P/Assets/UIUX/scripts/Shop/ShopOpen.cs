@@ -51,7 +51,7 @@ public class ShopOpen : MonoBehaviour
             else
             {
                 mainCam.transform.position = Vector3.Lerp(mainCam.transform.position, pivot.position, lerpTime * Time.deltaTime);
-                mainCam.transform.rotation = Quaternion.Slerp(mainCam.transform.rotation, pivot.rotation, lerpTime * Time.deltaTime);
+                mainCam.transform.rotation = Quaternion.Lerp(mainCam.transform.rotation, pivot.rotation, lerpTime * Time.deltaTime);
             }
         }
     }
