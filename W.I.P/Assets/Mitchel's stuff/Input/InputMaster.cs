@@ -89,6 +89,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotate Building"",
+                    ""type"": ""Value"",
+                    ""id"": ""26bdadcc-eb31-4ef1-a7d4-eb3ceb98cb77"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -212,6 +221,17 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""WaveStarter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cfec05c-276e-46c0-a03d-ef30ea410e54"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate Building"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +247,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_ShopTab = m_Player.FindAction("ShopTab", throwIfNotFound: true);
         m_Player_PauseEsc = m_Player.FindAction("PauseEsc", throwIfNotFound: true);
         m_Player_WaveStarter = m_Player.FindAction("WaveStarter", throwIfNotFound: true);
+        m_Player_RotateBuilding = m_Player.FindAction("Rotate Building", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +314,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ShopTab;
     private readonly InputAction m_Player_PauseEsc;
     private readonly InputAction m_Player_WaveStarter;
+    private readonly InputAction m_Player_RotateBuilding;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -304,6 +326,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @ShopTab => m_Wrapper.m_Player_ShopTab;
         public InputAction @PauseEsc => m_Wrapper.m_Player_PauseEsc;
         public InputAction @WaveStarter => m_Wrapper.m_Player_WaveStarter;
+        public InputAction @RotateBuilding => m_Wrapper.m_Player_RotateBuilding;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -334,6 +357,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @WaveStarter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveStarter;
                 @WaveStarter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveStarter;
                 @WaveStarter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveStarter;
+                @RotateBuilding.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateBuilding;
+                @RotateBuilding.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateBuilding;
+                @RotateBuilding.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateBuilding;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -359,6 +385,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @WaveStarter.started += instance.OnWaveStarter;
                 @WaveStarter.performed += instance.OnWaveStarter;
                 @WaveStarter.canceled += instance.OnWaveStarter;
+                @RotateBuilding.started += instance.OnRotateBuilding;
+                @RotateBuilding.performed += instance.OnRotateBuilding;
+                @RotateBuilding.canceled += instance.OnRotateBuilding;
             }
         }
     }
@@ -372,5 +401,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnShopTab(InputAction.CallbackContext context);
         void OnPauseEsc(InputAction.CallbackContext context);
         void OnWaveStarter(InputAction.CallbackContext context);
+        void OnRotateBuilding(InputAction.CallbackContext context);
     }
 }

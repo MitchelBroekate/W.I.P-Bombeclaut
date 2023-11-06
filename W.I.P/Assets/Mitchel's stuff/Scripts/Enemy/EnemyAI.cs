@@ -57,16 +57,20 @@ public class EnemyAI : MonoBehaviour
         {
             Vector3 destLook = new Vector3(checkpoints[currentDest].position.x, transform.position.y, checkpoints[currentDest].position.z) - transform.position;
             toRot = Quaternion.LookRotation(destLook, Vector3.up);
+
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
-            timeCount = timeCount + Time.deltaTime * 0.5f;
+
+
         }
         else
         {
             if (currentDest < checkpoints.Length - 1)
             {
                 currentDest++;
+
                 transform.rotation = Quaternion.Lerp(transform.rotation, toRot, timeCount);
+                timeCount = timeCount + Time.deltaTime * 0.5f;
             }
             else
             {
