@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3164561232648984729}
   m_Layer: 3
   m_Name: SpinP
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  checkPointReachedDistance: 0.1
   moveSpeed: 0.25
   currentDest: 0

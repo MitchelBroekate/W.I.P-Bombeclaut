@@ -9,6 +9,8 @@ TagManager:
   - Spray
   - Henry
   - NoPlace
+  - Enemy
+  - Tower
   layers:
   - Default
   - TransparentFX
