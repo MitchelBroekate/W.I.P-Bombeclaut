@@ -3603,7 +3603,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529638376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.538, y: -3.7676, z: 5.299}
+  m_LocalPosition: {x: 15.5844, y: -3.7676, z: 5.299}
   m_LocalScale: {x: 0.066553205, y: 0.066553205, z: 0.066553205}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4219,7 +4219,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -4353,6 +4353,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a31b4d99-4178-45c4-88c8-86adb28de074
     m_ActionName: Player/WaveStarter[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26bdadcc-eb31-4ef1-a7d4-eb3ceb98cb77
+    m_ActionName: Player/Rotate Building[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -10502,7 +10506,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596042934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.831, y: -3.7676, z: 5.413}
+  m_LocalPosition: {x: 12.831, y: -3.7676, z: 5.436}
   m_LocalScale: {x: 0.066553205, y: 0.066553205, z: 0.066553205}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13535,7 +13539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085114201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.392, y: -3.7676, z: 5.451}
+  m_LocalPosition: {x: 15.392, y: -3.7676, z: 5.467}
   m_LocalScale: {x: 0.066553205, y: 0.066553205, z: 0.066553205}
   m_ConstrainProportionsScale: 0
   m_Children: []

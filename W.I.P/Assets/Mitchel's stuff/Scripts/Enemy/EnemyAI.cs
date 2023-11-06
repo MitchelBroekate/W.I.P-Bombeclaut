@@ -8,36 +8,26 @@ using UnityEngine.Animations;
 public class EnemyAI : MonoBehaviour
 {
     #region Links
-    private NavMeshAgent agent;
-
     private GameObject waypointsP;
-
-    LookAtConstraint lookAtConstraint;
 
     [SerializeField]
     private Transform[] checkpoints;
-    private int curCheckPoint;
-    public float checkPointReachedDistance = 0.5f;
+
     public float moveSpeed = 1;
 
     [SerializeField]
     private int currentDest = 0;
 
-
     float timeCount = 0;
-
-    Ray ray;
-    RaycastHit hit;
 
     Quaternion toRot;
     #endregion
 
-    #region Awake and Update
+    #region Start and Update
 
     private void Start()
     {
         waypointsP = GameObject.Find("Checkpoints");
-        agent = GetComponent<NavMeshAgent>();
         PrefabLink();
         
     }
@@ -53,14 +43,15 @@ public class EnemyAI : MonoBehaviour
     {
 
 
-        if (Vector3.Distance(transform.position, checkpoints[currentDest].position) > 0.1f)
+        if (Vector3.Distance(transform.position, checkpoints[currentDest].position) > 0.01f)
         {
             Vector3 destLook = new Vector3(checkpoints[currentDest].position.x, transform.position.y, checkpoints[currentDest].position.z) - transform.position;
             toRot = Quaternion.LookRotation(destLook, Vector3.up);
 
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
-
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRot, timeCount);
+            timeCount = timeCount + Time.deltaTime * 0.5f;
 
         }
         else
@@ -69,8 +60,6 @@ public class EnemyAI : MonoBehaviour
             {
                 currentDest++;
 
-                transform.rotation = Quaternion.Lerp(transform.rotation, toRot, timeCount);
-                timeCount = timeCount + Time.deltaTime * 0.5f;
             }
             else
             {
