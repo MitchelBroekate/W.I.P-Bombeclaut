@@ -18,8 +18,6 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private int currentDest = 0;
 
-    float timeCount = 0;
-
     Quaternion toRot;
     #endregion
 
@@ -43,15 +41,14 @@ public class EnemyAI : MonoBehaviour
     {
 
 
-        if (Vector3.Distance(transform.position, checkpoints[currentDest].position) > 0.01f)
+        if (Vector3.Distance(transform.position, checkpoints[currentDest].position) > 0.02f)
         {
             Vector3 destLook = new Vector3(checkpoints[currentDest].position.x, transform.position.y, checkpoints[currentDest].position.z) - transform.position;
             toRot = Quaternion.LookRotation(destLook, Vector3.up);
 
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRot, timeCount);
-            timeCount = timeCount + Time.deltaTime * 0.5f;
+            transform.rotation = Quaternion.Lerp(transform.rotation, toRot, Time.deltaTime * 3f);
 
         }
         else
