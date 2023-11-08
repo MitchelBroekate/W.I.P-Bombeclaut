@@ -98,6 +98,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""WaveSkip"",
+                    ""type"": ""Value"",
+                    ""id"": ""e4d49d9c-e1ea-424b-be3e-6239d47a115e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -232,6 +241,17 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""Rotate Building"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a20a0f9-6820-4bc6-a278-bdb0d95a9b0d"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WaveSkip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,6 +268,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_PauseEsc = m_Player.FindAction("PauseEsc", throwIfNotFound: true);
         m_Player_WaveStarter = m_Player.FindAction("WaveStarter", throwIfNotFound: true);
         m_Player_RotateBuilding = m_Player.FindAction("Rotate Building", throwIfNotFound: true);
+        m_Player_WaveSkip = m_Player.FindAction("WaveSkip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -315,6 +336,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PauseEsc;
     private readonly InputAction m_Player_WaveStarter;
     private readonly InputAction m_Player_RotateBuilding;
+    private readonly InputAction m_Player_WaveSkip;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -327,6 +349,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @PauseEsc => m_Wrapper.m_Player_PauseEsc;
         public InputAction @WaveStarter => m_Wrapper.m_Player_WaveStarter;
         public InputAction @RotateBuilding => m_Wrapper.m_Player_RotateBuilding;
+        public InputAction @WaveSkip => m_Wrapper.m_Player_WaveSkip;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -360,6 +383,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @RotateBuilding.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateBuilding;
                 @RotateBuilding.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateBuilding;
                 @RotateBuilding.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotateBuilding;
+                @WaveSkip.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveSkip;
+                @WaveSkip.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveSkip;
+                @WaveSkip.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveSkip;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,6 +414,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @RotateBuilding.started += instance.OnRotateBuilding;
                 @RotateBuilding.performed += instance.OnRotateBuilding;
                 @RotateBuilding.canceled += instance.OnRotateBuilding;
+                @WaveSkip.started += instance.OnWaveSkip;
+                @WaveSkip.performed += instance.OnWaveSkip;
+                @WaveSkip.canceled += instance.OnWaveSkip;
             }
         }
     }
@@ -402,5 +431,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnPauseEsc(InputAction.CallbackContext context);
         void OnWaveStarter(InputAction.CallbackContext context);
         void OnRotateBuilding(InputAction.CallbackContext context);
+        void OnWaveSkip(InputAction.CallbackContext context);
     }
 }

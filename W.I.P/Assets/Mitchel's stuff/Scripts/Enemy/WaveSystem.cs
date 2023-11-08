@@ -16,12 +16,13 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private GameObject antEnemy, spiderEnemy;
 
-    [SerializeField]
-    private int waveStarter = 0;
+    public int waveStarter = 0;
 
-    private bool tutWave = false, wave1 = false, wave2 = false, case1 = true, case2 = true, case3 = true;
+    private bool tutWave = false, wave1 = false, wave2 = false, wave3 = false, wave4 = false, wave5 = false;
+    private bool case1 = true, case2 = true, case3 = true, case4 = true, case5 = true, case6 = false;
     #endregion
 
+    //updates the waveChecks
     private void Update()
     {
         WaveChecks();
@@ -51,7 +52,7 @@ public class WaveSystem : MonoBehaviour
                     wave1 = false;
                     case2 = false;
                 }
-                
+
                 break;
 
             case 3:
@@ -64,9 +65,43 @@ public class WaveSystem : MonoBehaviour
                 }
 
                 break;
+
+            case 4:
+                if (case4)
+                {
+                    wave3 = true;
+                    StartCoroutine(SpawnWaves());
+                    wave3 = false;
+                    case4 = false;
+                }
+
+                break;
+
+            case 5:
+                if (case5)
+                {
+                    wave4 = true;
+                    StartCoroutine(SpawnWaves());
+                    wave4 = false;
+                    case5 = false;
+                }
+
+                break;
+
+            case 6:
+                if (case6)
+                {
+                    wave5 = true;
+                    StartCoroutine(SpawnWaves());
+                    wave5 = false;
+                    case6 = false;
+                }
+
+                break;
         }
     }
 
+    //starts next wave when enemies are all gone
     public void ReadyWave(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -91,68 +126,121 @@ public class WaveSystem : MonoBehaviour
             {
                 antEnemy = Instantiate(pAnt, spawn.transform);
 
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(3.5f);
             }
         }
 
         if (wave1)
         {
-            for(int i = 0;i < 3; i++)
+            for (int a = 0; a < 5; a++)
             {
-                antEnemy = Instantiate(pAnt, spawn.transform);
+                for (int i = 0; i < 3; i++)
+                {
+                    antEnemy = Instantiate(pAnt, spawn.transform);
 
+                    yield return new WaitForSeconds(2);
+                }
+
+                spiderEnemy = Instantiate(pSpider, spawn.transform);
                 yield return new WaitForSeconds(2);
             }
-
-            spiderEnemy = Instantiate(pSpider, spawn.transform);
-            yield return new WaitForSeconds(2);
-
-            for (int i = 0;i < 3 ; i++)
-            {
-                antEnemy = Instantiate(pAnt, spawn.transform);
-
-                yield return new WaitForSeconds(2);
-            }
-
-            spiderEnemy = Instantiate(pSpider, spawn.transform);
-            yield return new WaitForSeconds(2);
-
-            for (int i = 0;i < 3 ; i++)
-            {
-                antEnemy = Instantiate(pAnt, spawn.transform);
-
-                yield return new WaitForSeconds(2);
-            }
-
-            spiderEnemy = Instantiate(pSpider, spawn.transform);
-            yield return new WaitForSeconds(2);
-
-            for (int i = 0; i < 3; i++)
-            {
-                antEnemy = Instantiate(pAnt, spawn.transform);
-
-                yield return new WaitForSeconds(2);
-            }
-
-            spiderEnemy = Instantiate(pSpider, spawn.transform);
-            yield return new WaitForSeconds(2);
-
-            for (int i = 0; i < 3; i++)
-            {
-                antEnemy = Instantiate(pAnt, spawn.transform);
-
-                yield return new WaitForSeconds(2);
-            }
-
-            spiderEnemy = Instantiate(pSpider, spawn.transform);
-            yield return new WaitForSeconds(2);
         }
 
         if (wave2)
         {
+            for (int a = 0; a < 4; a++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    antEnemy = Instantiate(pAnt, spawn.transform);
 
+                    yield return new WaitForSeconds(1.5f);
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    spiderEnemy = Instantiate(pSpider, spawn.transform);
+                    yield return new WaitForSeconds(2);
+                }
+            }
+
+            if (wave3)
+            {
+                for (int a = 0; a < 4; a++)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        antEnemy = Instantiate(pAnt, spawn.transform);
+
+                        yield return new WaitForSeconds(1);
+                    }
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        spiderEnemy = Instantiate(pSpider, spawn.transform);
+                        yield return new WaitForSeconds(1.5f);
+                    }
+                }
+            }
+
+            if (wave4)
+            {
+                for (int a = 0; a < 5; a++)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        spiderEnemy = Instantiate(pSpider, spawn.transform);
+                        yield return new WaitForSeconds(1.5f);
+                    }
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        antEnemy = Instantiate(pAnt, spawn.transform);
+
+                        yield return new WaitForSeconds(1);
+                    }
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        spiderEnemy = Instantiate(pSpider, spawn.transform);
+                        yield return new WaitForSeconds(1);
+                    }
+                }
+            }
+
+            if (wave5)
+            {
+                for (int a = 0; a < 6; a++)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        spiderEnemy = Instantiate(pSpider, spawn.transform);
+                        yield return new WaitForSeconds(1.5f);
+                    }
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        antEnemy = Instantiate(pAnt, spawn.transform);
+
+                        yield return new WaitForSeconds(1);
+                    }
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        spiderEnemy = Instantiate(pSpider, spawn.transform);
+                        yield return new WaitForSeconds(1);
+                    }
+
+                    for (int i = 0; i < 5; i++)
+                    {
+                        antEnemy = Instantiate(pAnt, spawn.transform);
+
+                        yield return new WaitForSeconds(1.5f);
+                    }
+
+                }
+            }
 
         }
     }
-
 }

@@ -10,6 +10,11 @@ public class EnemyAI : MonoBehaviour
     #region Links
     private GameObject waypointsP;
 
+    private BaseScript baseScript; 
+
+    [SerializeField]
+    private GameObject scriptLink;
+
     [SerializeField]
     private Transform[] checkpoints;
 
@@ -17,6 +22,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     private int currentDest = 0;
+
+    public int health;
 
     Quaternion toRot;
     #endregion
@@ -27,6 +34,15 @@ public class EnemyAI : MonoBehaviour
     {
         waypointsP = GameObject.Find("Checkpoints");
         PrefabLink();
+
+        if(gameObject.tag == "Mier")
+        {
+            health = 150;
+        }
+        else
+        {
+            health = 200;
+        }
         
     }
 
@@ -60,6 +76,18 @@ public class EnemyAI : MonoBehaviour
             }
             else
             {
+
+                baseScript = scriptLink.GetComponent<BaseScript>();
+
+                if (gameObject.tag == "Mier")
+                {
+                    baseScript.health -= 50;
+                }
+                else
+                {
+                    baseScript.health -= 75;
+                }
+
                 Destroy(gameObject);
             }
         }
@@ -72,6 +100,6 @@ public class EnemyAI : MonoBehaviour
         {
             checkpoints[i] = waypointsP.transform.GetChild(i).transform;
         }
-    }
+    }                                                                                                                                                                                                                                                                                 
 
 }
