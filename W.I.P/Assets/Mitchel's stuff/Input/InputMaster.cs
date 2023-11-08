@@ -107,6 +107,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AddMoney"",
+                    ""type"": ""Value"",
+                    ""id"": ""15be8c98-f889-4e13-940b-6ffc2c463cba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -252,6 +261,17 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""WaveSkip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64ba8a00-d6ed-484a-9eb8-f699b9c9b3ce"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddMoney"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -269,6 +289,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_WaveStarter = m_Player.FindAction("WaveStarter", throwIfNotFound: true);
         m_Player_RotateBuilding = m_Player.FindAction("Rotate Building", throwIfNotFound: true);
         m_Player_WaveSkip = m_Player.FindAction("WaveSkip", throwIfNotFound: true);
+        m_Player_AddMoney = m_Player.FindAction("AddMoney", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +358,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WaveStarter;
     private readonly InputAction m_Player_RotateBuilding;
     private readonly InputAction m_Player_WaveSkip;
+    private readonly InputAction m_Player_AddMoney;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -350,6 +372,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @WaveStarter => m_Wrapper.m_Player_WaveStarter;
         public InputAction @RotateBuilding => m_Wrapper.m_Player_RotateBuilding;
         public InputAction @WaveSkip => m_Wrapper.m_Player_WaveSkip;
+        public InputAction @AddMoney => m_Wrapper.m_Player_AddMoney;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -386,6 +409,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @WaveSkip.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveSkip;
                 @WaveSkip.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveSkip;
                 @WaveSkip.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWaveSkip;
+                @AddMoney.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAddMoney;
+                @AddMoney.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAddMoney;
+                @AddMoney.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAddMoney;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -417,6 +443,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @WaveSkip.started += instance.OnWaveSkip;
                 @WaveSkip.performed += instance.OnWaveSkip;
                 @WaveSkip.canceled += instance.OnWaveSkip;
+                @AddMoney.started += instance.OnAddMoney;
+                @AddMoney.performed += instance.OnAddMoney;
+                @AddMoney.canceled += instance.OnAddMoney;
             }
         }
     }
@@ -432,5 +461,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnWaveStarter(InputAction.CallbackContext context);
         void OnRotateBuilding(InputAction.CallbackContext context);
         void OnWaveSkip(InputAction.CallbackContext context);
+        void OnAddMoney(InputAction.CallbackContext context);
     }
 }

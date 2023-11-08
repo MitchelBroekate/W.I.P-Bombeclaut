@@ -11,6 +11,8 @@ TagManager:
   - NoPlace
   - Enemy
   - Tower
+  - Mier
+  - Spin
   layers:
   - Default
   - TransparentFX

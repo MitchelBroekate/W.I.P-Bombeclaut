@@ -8,12 +8,6 @@ public class DevTools : MonoBehaviour
     [SerializeField]
     private GameObject waypointsP;
 
-    private WaveSystem waveSystem;
-
-    private void Start()
-    {
-        //waveSystem = gameObject.GetComponent<WaveSystem>();
-    }
     public void DevWaveSkip()
     {
         for (int i = 0; i < waypointsP.transform.childCount; i++)
@@ -21,7 +15,15 @@ public class DevTools : MonoBehaviour
             Destroy(waypointsP.transform.GetChild(i).gameObject);
         }
 
+        //WaveSystem waveSystem = gameObject.GetComponent<WaveSystem>();
         //waveSystem.waveStarter++;
+    }
+
+    public void DevAddMoney()
+    {
+        BaseScript baseScript = gameObject.GetComponent<BaseScript>();
+
+        baseScript.moneyAmount += 10000;
     }
 
 
