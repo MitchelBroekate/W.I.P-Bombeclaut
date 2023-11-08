@@ -126,6 +126,8 @@ public class WaveSystem : MonoBehaviour
             {
                 antEnemy = Instantiate(pAnt, spawn.transform);
 
+                antEnemy.tag = "Enemy";
+
                 yield return new WaitForSeconds(3.5f);
             }
         }
@@ -138,10 +140,15 @@ public class WaveSystem : MonoBehaviour
                 {
                     antEnemy = Instantiate(pAnt, spawn.transform);
 
+                    antEnemy.tag = "Enemy";
+
                     yield return new WaitForSeconds(2);
                 }
 
                 spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                spiderEnemy.tag = "Enemy";
+
                 yield return new WaitForSeconds(2);
             }
         }
@@ -154,12 +161,17 @@ public class WaveSystem : MonoBehaviour
                 {
                     antEnemy = Instantiate(pAnt, spawn.transform);
 
+                    antEnemy.tag = "Enemy";
+
                     yield return new WaitForSeconds(1.5f);
                 }
 
                 for (int i = 0; i < 4; i++)
                 {
                     spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                    spiderEnemy.tag = "Enemy";
+
                     yield return new WaitForSeconds(2);
                 }
             }
@@ -172,12 +184,17 @@ public class WaveSystem : MonoBehaviour
                     {
                         antEnemy = Instantiate(pAnt, spawn.transform);
 
+                        antEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1);
                     }
 
                     for (int i = 0; i < 5; i++)
                     {
                         spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                        spiderEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1.5f);
                     }
                 }
@@ -190,6 +207,9 @@ public class WaveSystem : MonoBehaviour
                     for (int i = 0; i < 5; i++)
                     {
                         spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                        spiderEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1.5f);
                     }
 
@@ -197,12 +217,17 @@ public class WaveSystem : MonoBehaviour
                     {
                         antEnemy = Instantiate(pAnt, spawn.transform);
 
+                        antEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1);
                     }
 
                     for (int i = 0; i < 3; i++)
                     {
                         spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                        spiderEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1);
                     }
                 }
@@ -215,6 +240,9 @@ public class WaveSystem : MonoBehaviour
                     for (int i = 0; i < 5; i++)
                     {
                         spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                        spiderEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1.5f);
                     }
 
@@ -222,18 +250,25 @@ public class WaveSystem : MonoBehaviour
                     {
                         antEnemy = Instantiate(pAnt, spawn.transform);
 
+                        antEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1);
                     }
 
                     for (int i = 0; i < 4; i++)
                     {
                         spiderEnemy = Instantiate(pSpider, spawn.transform);
+
+                        spiderEnemy.tag = "Enemy";
+
                         yield return new WaitForSeconds(1);
                     }
 
                     for (int i = 0; i < 5; i++)
                     {
                         antEnemy = Instantiate(pAnt, spawn.transform);
+
+                        antEnemy.tag = "Enemy";
 
                         yield return new WaitForSeconds(1.5f);
                     }

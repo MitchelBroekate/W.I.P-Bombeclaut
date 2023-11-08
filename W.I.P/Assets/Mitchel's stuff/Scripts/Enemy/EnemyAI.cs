@@ -23,6 +23,8 @@ public class EnemyAI : MonoBehaviour
     private int currentDest = 0;
 
     public int health;
+    public int damage;
+    public int addMoney;
 
     Quaternion toRot;
     #endregion
@@ -34,15 +36,6 @@ public class EnemyAI : MonoBehaviour
         waypointsP = GameObject.Find("Checkpoints");
         scriptLink = GameObject.Find("Player");
         PrefabLink();
-
-        if(gameObject.tag == "Mier")
-        {
-            health = 150;
-        }
-        else
-        {
-            health = 200;
-        }
         
     }
 
@@ -79,15 +72,7 @@ public class EnemyAI : MonoBehaviour
 
                 baseScript = scriptLink.GetComponent<BaseScript>();
 
-                if (gameObject.tag == "Mier")
-                {
-                    baseScript.health -= 50;
-                }
-                else
-                {
-                    baseScript.health -= 75;
-                }
-
+                  baseScript.health -= damage;
                 Destroy(gameObject);
             }
         }
@@ -100,6 +85,20 @@ public class EnemyAI : MonoBehaviour
         {
             checkpoints[i] = waypointsP.transform.GetChild(i).transform;
         }
-    }                                                                                                                                                                                                                                                                                 
+    }    
+    
+    private void MoneyDeath()
+    {
+
+            if (health < 1)
+            {
+                BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
+
+                baseScript.moneyAmount += addMoney;
+
+                Destroy(gameObject);
+            }
+
+    }
 
 }

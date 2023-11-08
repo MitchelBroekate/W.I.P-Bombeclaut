@@ -15,8 +15,8 @@ public class DevTools : MonoBehaviour
             Destroy(waypointsP.transform.GetChild(i).gameObject);
         }
 
-        //WaveSystem waveSystem = gameObject.GetComponent<WaveSystem>();
-        //waveSystem.waveStarter++;
+        WaveSystem waveSystem = gameObject.GetComponent<WaveSystem>();
+        waveSystem.waveStarter++;
     }
 
     public void DevAddMoney()

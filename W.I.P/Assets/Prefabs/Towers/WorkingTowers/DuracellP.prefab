@@ -180,17 +180,22 @@ PrefabInstance:
     - target: {fileID: 8336344202433025953, guid: e326461d5d303c447b23b337381921fe,
         type: 3}
       propertyPath: CollisionModule.maxKillSpeed
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8336344202433025953, guid: e326461d5d303c447b23b337381921fe,
         type: 3}
       propertyPath: CollisionModule.minKillSpeed
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8336344202433025953, guid: e326461d5d303c447b23b337381921fe,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336344202433025953, guid: e326461d5d303c447b23b337381921fe,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8336344202433025953, guid: e326461d5d303c447b23b337381921fe,
         type: 3}
@@ -506,3 +511,21 @@ ParticleSystem:
     type: 3}
   m_PrefabInstance: {fileID: 6143501228438390449}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7996130878483267357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4302608327960557996, guid: e326461d5d303c447b23b337381921fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 6143501228438390449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3800713191980255177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996130878483267357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258641cc65441bb43ad836dcc958aa39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
