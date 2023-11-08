@@ -42,6 +42,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         NextPoint();
+        MoneyDeath();
     }
     #endregion
 
