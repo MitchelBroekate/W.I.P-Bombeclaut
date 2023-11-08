@@ -1,27 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class DuracellTowerAI : MonoBehaviour
+public class SprayAI : MonoBehaviour
 {
-    RaycastHit hit;
     public Transform target;
-    public float fireRadius;
-    public string enemyTag = "Enemy";
-
     public Transform partToRotate;
 
-    public ParticleSystem teslaShot;
+    public string enemyTag = "Enemy";
+
+    public ParticleSystem sprayShot;
+
+    public float fireRadius;
     public float fireRate;
     private float fireCountdown = 0f;
-
-    public List<ParticleCollisionEvent> collisionEvents;
     private void Start()
     {
-        var main = teslaShot.main;
-        main.duration = fireRate;
-
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
     public void UpdateTarget()
@@ -39,7 +33,7 @@ public class DuracellTowerAI : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
-        if(nearestEnemy != null && shortestDistance <= fireRadius)
+        if (nearestEnemy != null && shortestDistance <= fireRadius)
         {
             target = nearestEnemy.transform;
         }
@@ -58,7 +52,7 @@ public class DuracellTowerAI : MonoBehaviour
         Vector3 rotation = lookRotation.eulerAngles;
         partToRotate.rotation = Quaternion.Euler(rotation.x += 20, rotation.y, 0f);
 
-        if(fireCountdown <= 0f)
+        if (fireCountdown <= 0f)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
@@ -66,12 +60,12 @@ public class DuracellTowerAI : MonoBehaviour
 
         fireCountdown -= Time.deltaTime;
     }
-    void Shoot()
+    private void Shoot()
     {
-        teslaShot.Play();
-        if(teslaShot.collision.sendCollisionMessages)
+        sprayShot.Play();
+        if(sprayShot.collision.sendCollisionMessages)
         {
-            Debug.Log("HIT");
+            Debug.Log("Spray Hit");
         }
     }
     private void OnDrawGizmosSelected()
