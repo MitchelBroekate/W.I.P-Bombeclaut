@@ -12,7 +12,6 @@ public class EnemyAI : MonoBehaviour
 
     private BaseScript baseScript; 
 
-    [SerializeField]
     private GameObject scriptLink;
 
     [SerializeField]
@@ -33,6 +32,7 @@ public class EnemyAI : MonoBehaviour
     private void Start()
     {
         waypointsP = GameObject.Find("Checkpoints");
+        scriptLink = GameObject.Find("Player");
         PrefabLink();
 
         if(gameObject.tag == "Mier")
