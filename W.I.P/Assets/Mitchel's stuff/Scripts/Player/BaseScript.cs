@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BaseScript : MonoBehaviour
 {
-    public int health = 1500;
+    public int health = 1000;
 
     public int moneyAmount = 250;
 
