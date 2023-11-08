@@ -65,6 +65,7 @@ public class DuracellTowerAI : MonoBehaviour
         }
 
         fireCountdown -= Time.deltaTime;
+
     }
     void Shoot()
     {
