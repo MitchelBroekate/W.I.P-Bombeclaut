@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3625031733122679399
 Transform:
@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Duracell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5107591407362117724
 Transform:
@@ -146,6 +146,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: lightning particle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4302608327960557996, guid: e326461d5d303c447b23b337381921fe,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8336344202433025953, guid: e326461d5d303c447b23b337381921fe,
         type: 3}
