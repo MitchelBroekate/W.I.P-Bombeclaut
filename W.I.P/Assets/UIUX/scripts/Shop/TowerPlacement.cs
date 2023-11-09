@@ -23,16 +23,23 @@ public class TowerPlacement : MonoBehaviour
     private GameObject shop;
 
     [SerializeField]
+    private GameObject scriptLink;
+
+    [SerializeField]
     private bool opDuracell, opMouseTrap, opSpray, opHenry;
 
     private bool placeSwitchCheck;
 
     private bool hitCheck;
 
+    public bool pathPlacement;
+
     Vector3 startOpPos;
 
     Ray ray;
     RaycastHit hit;
+
+    int minMoney;
 
     public Material greenMat;
     public Material redMat;
@@ -62,14 +69,20 @@ public class TowerPlacement : MonoBehaviour
         followMouse = duracellO;
         mousePlacement = duracellP;
 
+        minMoney = 100;
+
     }
 
     public void MouseTrapButton()
     {
         opMouseTrap = !opMouseTrap;
 
+        pathPlacement = true;
+
         followMouse = mouseTrapO;
         mousePlacement = mouseTrapP;
+
+        minMoney = 150;
     }
 
     public void SprayButton()
@@ -78,6 +91,8 @@ public class TowerPlacement : MonoBehaviour
 
         followMouse = sprayO;
         mousePlacement = sprayP;
+
+        minMoney = 350;
     }
     public void HenryButton()
     {
@@ -85,6 +100,8 @@ public class TowerPlacement : MonoBehaviour
 
         followMouse = henryO;
         mousePlacement = henryP;
+
+        minMoney = 500;
 
     }
     #endregion
@@ -123,23 +140,102 @@ public class TowerPlacement : MonoBehaviour
 
     }
 
+    //void for placement of the towers, check if it can be placed of that position and reduction of money
     void PlaceTower()
     {
+
         if(hitCheck)
         {
-            if (placeSwitchCheck && hit.transform.tag != "Path")
+            if (placeSwitchCheck)
             {
-                followMouse.transform.position = startOpPos;
+                if (hit.transform.tag == "Path")
+                {
+                    if (pathPlacement)
+                    {
+                        BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
 
-                Instantiate(mousePlacement, hit.point, Quaternion.identity);
+                        if (baseScript.moneyAmount >= minMoney)
+                        {
+                            baseScript.moneyAmount -= minMoney;
 
-                placeSwitchCheck = false;
+                            followMouse.transform.position = startOpPos;
 
-                shop.SetActive(true);
-                shopScript.pauseMenuBlock = false;
-                pauseScript.shopOpenBlock = false;
+                            Instantiate(mousePlacement, hit.point, Quaternion.identity);
+
+                            placeSwitchCheck = false;
+
+                            shop.SetActive(true);
+                            shopScript.pauseMenuBlock = false;
+                            pauseScript.shopOpenBlock = false;
+
+                            pathPlacement = false;
+                        }
+                        else
+                        {
+                            followMouse.transform.position = startOpPos;
+
+                            placeSwitchCheck = false;
+
+                            shop.SetActive(true);
+                        }
+                    }
+                    else
+                    {
+                        followMouse.transform.position = startOpPos;
+
+                        placeSwitchCheck = false;
+
+                        shop.SetActive(true);
+                    }
+
+                }
+                else
+                {
+                    if (pathPlacement)
+                    {
+                        pathPlacement = false;
+
+                        followMouse.transform.position = startOpPos;
+
+                        placeSwitchCheck = false;
+
+                        shop.SetActive(true);
+                        shopScript.pauseMenuBlock = false;
+                        pauseScript.shopOpenBlock = false;
+                    }
+                    else
+                    {
+                        BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
+
+                        if (baseScript.moneyAmount >= minMoney)
+                        {
+                            baseScript.moneyAmount -= minMoney;
+
+                            followMouse.transform.position = startOpPos;
+
+                            Instantiate(mousePlacement, hit.point, Quaternion.identity);
+
+                            placeSwitchCheck = false;
+
+                            shop.SetActive(true);
+                            shopScript.pauseMenuBlock = false;
+                            pauseScript.shopOpenBlock = false;
+
+                        }
+                        else
+                        {
+                            followMouse.transform.position = startOpPos;
+
+                            placeSwitchCheck = false;
+
+                            shop.SetActive(true);
+                            shopScript.pauseMenuBlock = false;
+                            pauseScript.shopOpenBlock = false;
+                        }
+                    }
+                    
+                }
             }
-            Debug.Log(hit);
 
             if (hit.transform.tag == "Path")
             {
@@ -148,15 +244,10 @@ public class TowerPlacement : MonoBehaviour
                 placeSwitchCheck = false;
 
                 shop.SetActive(true);
-
-                followMouse.GetComponentInChildren<MeshRenderer>().material = redMat;
-
-                
+                shopScript.pauseMenuBlock = false;
+                pauseScript.shopOpenBlock = false;
             }
-            //else
-            //{
-            //    followMouse.GetComponentInChildren<MeshRenderer>().material = greenMat;
-            //}
+
         }
 
         if (opDuracell || opHenry || opMouseTrap || opSpray)
