@@ -5846,6 +5846,8 @@ MonoBehaviour:
   opMouseTrap: 0
   opSpray: 0
   opHenry: 0
+  greenMat: {fileID: 2100000, guid: d1ddfac84cad35041a6c47d02030d9e3, type: 2}
+  redMat: {fileID: 2100000, guid: 402a5746bae3eab4f82dbf605c393b19, type: 2}
   shopScript: {fileID: 636445394}
   pauseScript: {fileID: 636445395}
 --- !u!114 &636445398

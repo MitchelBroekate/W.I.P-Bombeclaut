@@ -34,6 +34,9 @@ public class TowerPlacement : MonoBehaviour
     Ray ray;
     RaycastHit hit;
 
+    public Material greenMat;
+    public Material redMat;
+
     public ShopOpen shopScript;
     public PauseScript pauseScript;
     #endregion
@@ -146,10 +149,14 @@ public class TowerPlacement : MonoBehaviour
 
                 shop.SetActive(true);
 
-                Material material = followMouse.GetComponentInChildren<Material>();
+                followMouse.GetComponentInChildren<MeshRenderer>().material = redMat;
 
-                material.color = Color.red;
+                
             }
+            //else
+            //{
+            //    followMouse.GetComponentInChildren<MeshRenderer>().material = greenMat;
+            //}
         }
 
         if (opDuracell || opHenry || opMouseTrap || opSpray)
