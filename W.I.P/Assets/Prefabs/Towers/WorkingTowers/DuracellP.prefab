@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5324451271393882008}
   - component: {fileID: 7926537042100476754}
   - component: {fileID: 6747691538252292225}
+  - component: {fileID: 9010526888257452087}
   m_Layer: 0
   m_Name: DuracellP
   m_TagString: Duracell
@@ -135,6 +136,20 @@ MonoBehaviour:
   partToRotate: {fileID: 3625031733122679399}
   teslaShot: {fileID: 2806513544837157136}
   fireRate: 1
+--- !u!64 &9010526888257452087
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420077782923086643}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 54df96ee000281f45aa6a3abbecd82d4, type: 3}
 --- !u!1001 &6143501228438390449
 PrefabInstance:
   m_ObjectHideFlags: 0

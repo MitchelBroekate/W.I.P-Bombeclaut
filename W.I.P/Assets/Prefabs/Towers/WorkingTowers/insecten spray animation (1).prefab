@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1880235526690669689}
   - component: {fileID: 3941101777018217938}
+  - component: {fileID: 6379410918737947292}
   m_Layer: 0
   m_Name: Cylinder.001
   m_TagString: Untagged
@@ -150,6 +151,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.000019878149, y: 0.11178504, z: 0.046083584}
     m_Extent: {x: 0.09286313, y: 0.15310131, z: 0.15010385}
   m_DirtyAABB: 0
+--- !u!64 &6379410918737947292
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581334331019736987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4134076091406739523
 GameObject:
   m_ObjectHideFlags: 0
@@ -5089,6 +5104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994686449011444889}
   - component: {fileID: 141990185576831758}
+  - component: {fileID: 3544465736616626594}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -5165,3 +5181,17 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000038534403, y: -1.1436412, z: 0.057614446}
     m_Extent: {x: 0.49999997, y: 1.1118395, z: 0.5304753}
   m_DirtyAABB: 0
+--- !u!64 &3544465736616626594
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443425572604926120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
