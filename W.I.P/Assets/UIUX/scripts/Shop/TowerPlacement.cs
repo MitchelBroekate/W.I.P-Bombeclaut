@@ -135,6 +135,11 @@ public class TowerPlacement : MonoBehaviour
             shopScript.pauseMenuBlock = true;
             pauseScript.shopOpenBlock = true;
         }
+
+        if (opMouseTrap)
+        {
+            hit.point += new Vector3(0, 0.03f, 0);
+        }
     }
 }
 
