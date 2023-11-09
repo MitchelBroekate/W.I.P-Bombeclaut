@@ -94,6 +94,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Controls",
+                    "type": "Value",
+                    "id": "142c611b-685f-416a-b13c-7208d6b1fa75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -188,7 +197,7 @@
                 {
                     "name": "",
                     "id": "1656ddc5-cf0d-479f-8513-a14688425a60",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -248,6 +257,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AddMoney",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b32a1952-0da3-4b29-9aaa-9c9fd6de43aa",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Controls",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

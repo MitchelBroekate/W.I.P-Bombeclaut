@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
@@ -25,6 +26,8 @@ public class TowerPlacement : MonoBehaviour
     private bool opDuracell, opMouseTrap, opSpray, opHenry;
 
     private bool placeSwitchCheck;
+
+    private bool hitCheck;
 
     Vector3 startOpPos;
 
@@ -91,7 +94,11 @@ public class TowerPlacement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100))
         {
             followMouse.transform.position = hit.point;
-            
+            hitCheck = true;
+        }
+        else
+        {
+            hitCheck = false;
         }
     }
 
@@ -115,20 +122,37 @@ public class TowerPlacement : MonoBehaviour
 
     void PlaceTower()
     {
-        if (placeSwitchCheck && hit.transform.tag != "Path")
+        if(hitCheck)
         {
-            followMouse.transform.position = startOpPos;
+            if (placeSwitchCheck && hit.transform.tag != "Path")
+            {
+                followMouse.transform.position = startOpPos;
 
-            Instantiate(mousePlacement, hit.point, Quaternion.identity);
+                Instantiate(mousePlacement, hit.point, Quaternion.identity);
 
-            placeSwitchCheck = false;
+                placeSwitchCheck = false;
 
-            shop.SetActive(true);
-            shopScript.pauseMenuBlock = false;
-            pauseScript.shopOpenBlock = false;
+                shop.SetActive(true);
+                shopScript.pauseMenuBlock = false;
+                pauseScript.shopOpenBlock = false;
+            }
+            Debug.Log(hit);
+
+            if (hit.transform.tag == "Path")
+            {
+                followMouse.transform.position = startOpPos;
+
+                placeSwitchCheck = false;
+
+                shop.SetActive(true);
+
+                Material material = followMouse.GetComponentInChildren<Material>();
+
+                material.color = Color.red;
+            }
         }
 
-        if(opDuracell || opHenry || opMouseTrap || opSpray)
+        if (opDuracell || opHenry || opMouseTrap || opSpray)
         {
             MouseCorrection();
             shop.SetActive(false);
@@ -140,6 +164,7 @@ public class TowerPlacement : MonoBehaviour
         {
             hit.point += new Vector3(0, 0.03f, 0);
         }
+
     }
 }
 

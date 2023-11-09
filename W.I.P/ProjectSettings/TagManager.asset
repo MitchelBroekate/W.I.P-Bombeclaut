@@ -11,6 +11,7 @@ TagManager:
   - NoPlace
   - Enemy
   - Tower
+  - Path
   layers:
   - Default
   - TransparentFX
