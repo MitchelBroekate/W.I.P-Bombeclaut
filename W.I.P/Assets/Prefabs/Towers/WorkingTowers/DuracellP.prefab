@@ -59,7 +59,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420077782923086643}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.030813701, y: 0.030813701, z: 0.030813701}
   m_ConstrainProportionsScale: 0
@@ -549,3 +549,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258641cc65441bb43ad836dcc958aa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 25

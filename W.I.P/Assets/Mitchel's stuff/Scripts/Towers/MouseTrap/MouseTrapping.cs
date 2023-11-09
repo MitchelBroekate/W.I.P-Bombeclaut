@@ -6,15 +6,15 @@ public class MouseTrapping : MonoBehaviour
 {
     Animator animator;
     EnemyAI enemyAI;
+    bool doDamage = true;
 
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (animator.GetBool("Trap Active") == false)
+        if (doDamage)
         {
 
             Debug.Log("joebide");
@@ -23,22 +23,24 @@ public class MouseTrapping : MonoBehaviour
 
             if (other.gameObject.tag == "Enemy")
             {
-                    StartCoroutine(StartAnimation(10));
+                    StartCoroutine(StartAnimation(1, 9));
             }
         }
-
     }
-
-
-    IEnumerator StartAnimation(float waitTime)
+    IEnumerator StartAnimation(float waitTime, float waitTimeDamage)
     {
         animator.SetBool("Trap Active", true);
 
         enemyAI.health -= 150;
 
+        doDamage = false;
+
         yield return new WaitForSeconds(waitTime);
 
         animator.SetBool("Trap Active", false);
+        yield return new WaitForSeconds(waitTimeDamage);
+
+        doDamage = true;
 
         yield return null;
     }
