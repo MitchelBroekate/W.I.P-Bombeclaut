@@ -58,7 +58,7 @@ public class DuracellTowerAI : MonoBehaviour
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(rotation.x += 40, rotation.y, 0f);
+        partToRotate.rotation = Quaternion.Euler(rotation.x += 55, rotation.y, 0f);
 
         if(fireCountdown <= 0f)
         {

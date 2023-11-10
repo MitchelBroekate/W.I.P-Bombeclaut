@@ -105,6 +105,7 @@ public class WaveSystem : MonoBehaviour
                 win.SetActive(true);
                 Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
+                waveStarter = 0;
                 break;
         }
     }
