@@ -70,11 +70,11 @@
                 },
                 {
                     "name": "Rotate Building",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "26bdadcc-eb31-4ef1-a7d4-eb3ceb98cb77",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": true
                 },
                 {
@@ -231,7 +231,7 @@
                     "name": "",
                     "id": "5cfec05c-276e-46c0-a03d-ef30ea410e54",
                     "path": "<Keyboard>/r",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=1)",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate Building",

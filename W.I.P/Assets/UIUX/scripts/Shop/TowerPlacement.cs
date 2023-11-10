@@ -1,9 +1,10 @@
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-    #region Links
+    #region Variables
     [SerializeField]
     private GameObject duracellO, mouseTrapO, sprayO, henryO;
 
@@ -48,7 +49,7 @@ public class TowerPlacement : MonoBehaviour
     public PauseScript pauseScript;
     #endregion
 
-    //start for start possition for towerselections to return to
+    //start for start possition for towerselections to return to and perform rotation void
     private void Start()
     {
         startOpPos = duracellO.transform.position;
@@ -140,35 +141,45 @@ public class TowerPlacement : MonoBehaviour
 
     }
 
-    //void for placement of the towers, check if it can be placed of that position and reduction of money
+    //void for placement of the towers, check if it can be placed on that position (if not, return) and reduction of money
     void PlaceTower()
     {
-
         if(hitCheck)
         {
             if (placeSwitchCheck)
             {
-                if (hit.transform.tag == "Path")
+                if (hit.transform.tag == "Path" || hit.transform.tag == "NonPlace")
                 {
-                    if (pathPlacement)
+                    if (hit.transform.tag != "Enemy")
                     {
-                        BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
-
-                        if (baseScript.moneyAmount >= minMoney)
+                        if (pathPlacement)
                         {
-                            baseScript.moneyAmount -= minMoney;
+                            BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
 
-                            followMouse.transform.position = startOpPos;
+                            if (baseScript.moneyAmount >= minMoney)
+                            {
+                                baseScript.moneyAmount -= minMoney;
 
-                            Instantiate(mousePlacement, hit.point, Quaternion.identity);
+                                followMouse.transform.position = startOpPos;
 
-                            placeSwitchCheck = false;
+                                Instantiate(mousePlacement, hit.point, Quaternion.identity);
 
-                            shop.SetActive(true);
-                            shopScript.pauseMenuBlock = false;
-                            pauseScript.shopOpenBlock = false;
+                                placeSwitchCheck = false;
 
-                            pathPlacement = false;
+                                shop.SetActive(true);
+                                shopScript.pauseMenuBlock = false;
+                                pauseScript.shopOpenBlock = false;
+
+                                pathPlacement = false;
+                            }
+                            else
+                            {
+                                followMouse.transform.position = startOpPos;
+
+                                placeSwitchCheck = false;
+
+                                shop.SetActive(true);
+                            }
                         }
                         else
                         {
@@ -179,15 +190,6 @@ public class TowerPlacement : MonoBehaviour
                             shop.SetActive(true);
                         }
                     }
-                    else
-                    {
-                        followMouse.transform.position = startOpPos;
-
-                        placeSwitchCheck = false;
-
-                        shop.SetActive(true);
-                    }
-
                 }
                 else
                 {
@@ -232,8 +234,7 @@ public class TowerPlacement : MonoBehaviour
                             shopScript.pauseMenuBlock = false;
                             pauseScript.shopOpenBlock = false;
                         }
-                    }
-                    
+                    }  
                 }
             }
 
@@ -264,6 +265,11 @@ public class TowerPlacement : MonoBehaviour
         }
 
     }
+
+    //void for rotating buildings
+    public void RotateTower()
+    {
+        followMouse.transform.Rotate(new Vector3(0, 45, 0));
+    }
+
 }
-
-

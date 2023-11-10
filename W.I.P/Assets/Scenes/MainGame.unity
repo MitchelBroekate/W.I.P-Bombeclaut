@@ -3609,7 +3609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 717.92993, y: -52.081154}
+  m_AnchoredPosition: {x: 717.92993, y: -87.42006}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414744314
@@ -4805,7 +4805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 239.30997, y: -52.081154}
+  m_AnchoredPosition: {x: 239.30997, y: -87.42006}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513101588
@@ -5717,7 +5717,19 @@ MonoBehaviour:
     m_ActionId: a31b4d99-4178-45c4-88c8-86adb28de074
     m_ActionName: Player/WaveStarter[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 636445397}
+        m_TargetAssemblyTypeName: TowerPlacement, Assembly-CSharp
+        m_MethodName: RotateTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 26bdadcc-eb31-4ef1-a7d4-eb3ceb98cb77
     m_ActionName: Player/Rotate Building[/Keyboard/r]
   - m_PersistentCalls:
@@ -5725,7 +5737,7 @@ MonoBehaviour:
       - m_Target: {fileID: 636445398}
         m_TargetAssemblyTypeName: DevTools, Assembly-CSharp
         m_MethodName: DevWaveSkip
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5836,6 +5848,7 @@ MonoBehaviour:
   health: 1500
   moneyAmount: 250
   healthSlider: {fileID: 874179020}
+  deathScreen: {fileID: 56539065}
   textMoney: {fileID: 1380193279}
 --- !u!114 &636445400
 MonoBehaviour:
@@ -9235,6 +9248,7 @@ MonoBehaviour:
   pSpider: {fileID: 6962432156496321810, guid: 47ed86b506342b140bf55fc344382a5b, type: 3}
   antEnemy: {fileID: 0}
   spiderEnemy: {fileID: 0}
+  win: {fileID: 40932788}
   waveStarter: 0
 --- !u!4 &1115487702
 Transform:
@@ -16000,18 +16014,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W - forward
+  m_text: 'W,A,S,D - Move
 
-    A - left
+    TAB - Shop
 
-    S - back
+    R - Rotate Build
 
-    D - right
-
-    TAB - shop
-
-    SPACE
-    - new wave'
+    SPACE - New
+    Wave'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 01dbf6fa28267854dbfe3f5d0f9744b4, type: 2}
   m_sharedMaterial: {fileID: 2572119232288501353, guid: 01dbf6fa28267854dbfe3f5d0f9744b4,

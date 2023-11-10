@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class DevTools : MonoBehaviour
 {
     [SerializeField]
     private GameObject waypointsP;
 
-    public void DevWaveSkip()
+    public void DevWaveSkip(InputAction.CallbackContext context)
     {
-        for (int i = 0; i < waypointsP.transform.childCount; i++)
+        if (context.performed)
         {
-            Destroy(waypointsP.transform.GetChild(i).gameObject);
+            SceneManager.LoadScene("Scene 2 Kitchen", LoadSceneMode.Single);
         }
 
-        WaveSystem waveSystem = gameObject.GetComponent<WaveSystem>();
-        waveSystem.waveStarter++;
     }
 
     public void DevAddMoney()

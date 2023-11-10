@@ -16,6 +16,9 @@ public class WaveSystem : MonoBehaviour
     [SerializeField]
     private GameObject antEnemy, spiderEnemy;
 
+    [SerializeField]
+    private GameObject win;
+
     public int waveStarter = 0;
 
     private bool tutWave = false, wave1 = false, wave2 = false, wave3 = false, wave4 = false, wave5 = false;
@@ -96,7 +99,12 @@ public class WaveSystem : MonoBehaviour
                     wave5 = false;
                     case6 = false;
                 }
+                break;
 
+            case 7:
+                win.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 break;
         }
     }

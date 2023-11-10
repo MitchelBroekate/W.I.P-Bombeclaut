@@ -13,6 +13,9 @@ public class BaseScript : MonoBehaviour
     public Slider healthSlider;
 
     [SerializeField]
+    private GameObject deathScreen;
+
+    [SerializeField]
     private TextMeshProUGUI textMoney;
 
     private void Update()
@@ -20,6 +23,18 @@ public class BaseScript : MonoBehaviour
         textMoney.text = moneyAmount.ToString();
 
         healthSlider.value = health;
+
+        death();
+    }
+
+    void death()
+    {
+        if(health < 1)
+        {
+            deathScreen.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
 }

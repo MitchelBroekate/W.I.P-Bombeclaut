@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hiro Test.unity
     guid: 495a971bef5f2664f92cf47a0233af8d
+  - enabled: 1
+    path: Assets/Scenes/Scene 2 Kitchen.unity
+    guid: 4a01cda86212fbd4bbaa8eaef519cca6
   m_configObjects: {}
