@@ -32,7 +32,7 @@ public class BaseScript : MonoBehaviour
         if(health < 1)
         {
             deathScreen.SetActive(true);
-            Cursor.visible = true;
+            Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
         }
     }

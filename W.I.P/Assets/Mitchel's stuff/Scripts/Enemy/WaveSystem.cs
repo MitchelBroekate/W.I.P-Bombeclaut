@@ -103,7 +103,7 @@ public class WaveSystem : MonoBehaviour
 
             case 7:
                 win.SetActive(true);
-                Cursor.visible = true;
+                Time.timeScale = 0f;
                 Cursor.lockState = CursorLockMode.None;
                 break;
         }

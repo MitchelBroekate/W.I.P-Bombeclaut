@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5324451271393882008}
   - component: {fileID: 7926537042100476754}
   - component: {fileID: 6747691538252292225}
-  - component: {fileID: 9010526888257452087}
+  - component: {fileID: -7870628597460403525}
   m_Layer: 0
   m_Name: DuracellP
   m_TagString: Duracell
@@ -59,7 +59,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420077782923086643}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.030813701, y: 0.030813701, z: 0.030813701}
   m_ConstrainProportionsScale: 0
@@ -67,7 +67,7 @@ Transform:
   - {fileID: 3625031733122679399}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &5324451271393882008
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -136,8 +136,8 @@ MonoBehaviour:
   partToRotate: {fileID: 3625031733122679399}
   teslaShot: {fileID: 2806513544837157136}
   fireRate: 1
---- !u!64 &9010526888257452087
-MeshCollider:
+--- !u!65 &-7870628597460403525
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,10 +146,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 54df96ee000281f45aa6a3abbecd82d4, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4.4999995, y: 5.828329, z: 2.5000005}
+  m_Center: {x: 0.0041025258, y: 2.9141715, z: 0.01717804}
 --- !u!1001 &6143501228438390449
 PrefabInstance:
   m_ObjectHideFlags: 0
