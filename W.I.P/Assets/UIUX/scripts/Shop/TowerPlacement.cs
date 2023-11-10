@@ -26,6 +26,8 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField]
     private GameObject scriptLink;
 
+    private GameObject tower;
+
     [SerializeField]
     private bool opDuracell, opMouseTrap, opSpray, opHenry;
 
@@ -166,40 +168,39 @@ public class TowerPlacement : MonoBehaviour
 
                                     followMouse.transform.position = startOpPos;
 
-                                    Instantiate(mousePlacement, hit.point, rotated);
-
+                                    tower = Instantiate(mousePlacement, hit.point, rotated);
+                                    tower.tag = "NonPlace";
+                                    pathPlacement = false;
                                     placeSwitchCheck = false;
 
                                     shop.SetActive(true);
                                     shopScript.pauseMenuBlock = false;
                                     pauseScript.shopOpenBlock = false;
-
-                                    pathPlacement = false;
+                                    shopScript.shopIsOpen = true;
                                 }
                                 else
                                 {
                                     followMouse.transform.position = startOpPos;
-
+                                    pathPlacement = false;
                                     placeSwitchCheck = false;
 
                                     shop.SetActive(true);
                                     shopScript.pauseMenuBlock = false;
                                     pauseScript.shopOpenBlock = false;
-
-                                    pathPlacement = false;
+                                    shopScript.shopIsOpen = true;
                                 }
                             }
                             else
                             {
                                 followMouse.transform.position = startOpPos;
-
+                                pathPlacement = false;
                                 placeSwitchCheck = false;
 
                                 shop.SetActive(true);
                                 shopScript.pauseMenuBlock = false;
                                 pauseScript.shopOpenBlock = false;
+                                shopScript.shopIsOpen = true;
 
-                                pathPlacement = false;
                             }
                         }
                     }
@@ -227,7 +228,8 @@ public class TowerPlacement : MonoBehaviour
 
                                 followMouse.transform.position = startOpPos;
 
-                                Instantiate(mousePlacement, hit.point, rotated);
+                                tower = Instantiate(mousePlacement, hit.point, rotated);
+                                tower.tag = "NonPlace";
 
                                 placeSwitchCheck = false;
 

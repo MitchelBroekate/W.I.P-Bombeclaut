@@ -4760,8 +4760,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494901233}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.32561088, y: -1.886226, z: 9.714761}
-  m_LocalScale: {x: 5.239515, y: 0.5239515, z: 5.239515}
+  m_LocalPosition: {x: -0.154, y: 0.96, z: 10.805}
+  m_LocalScale: {x: 1, y: 0.18194738, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 606005913}
@@ -4827,7 +4827,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 54df96ee000281f45aa6a3abbecd82d4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54df96ee000281f45aa6a3abbecd82d4,
         type: 3}
@@ -6094,7 +6094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a7a240db07e8946911754b6c7b7f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1500
+  health: 1000
   moneyAmount: 250
   healthSlider: {fileID: 874179020}
   deathScreen: {fileID: 56539065}
@@ -11682,12 +11682,12 @@ PrefabInstance:
     - target: {fileID: 8879528566716807029, guid: 2bbcd6958461080438a7abbbcf1fb2b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 2bbcd6958461080438a7abbbcf1fb2b8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.82
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 2bbcd6958461080438a7abbbcf1fb2b8,
         type: 3}
@@ -12871,7 +12871,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4b104bddb4e10c04da996c952bc3f038,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4b104bddb4e10c04da996c952bc3f038,
         type: 3}

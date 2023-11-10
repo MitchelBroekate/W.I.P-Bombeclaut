@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
     {
 
 
-        if (Vector3.Distance(transform.position, checkpoints[currentDest].position) > 0.02f)
+        if (Vector3.Distance(transform.position, checkpoints[currentDest].position) > 0.03f)
         {
             Vector3 destLook = new Vector3(checkpoints[currentDest].position.x, transform.position.y, checkpoints[currentDest].position.z) - transform.position;
             toRot = Quaternion.LookRotation(destLook, Vector3.up);
