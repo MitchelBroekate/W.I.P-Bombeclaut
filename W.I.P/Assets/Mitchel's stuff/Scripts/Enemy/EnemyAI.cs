@@ -102,4 +102,16 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((collision.transform.tag == "End"))
+        {
+            baseScript = scriptLink.GetComponent<BaseScript>();
+
+            baseScript.health -= damage;
+            Destroy(gameObject);
+        }
+
+    }
+
 }

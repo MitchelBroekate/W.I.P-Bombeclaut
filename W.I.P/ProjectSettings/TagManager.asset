@@ -9,7 +9,11 @@ TagManager:
   - Tower
   - Path
   - NonPlace
+<<<<<<< Updated upstream
   - Floor
+=======
+  - End
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
