@@ -85,7 +85,7 @@ public class TowerPlacement : MonoBehaviour
         followMouse = mouseTrapO;
         mousePlacement = mouseTrapP;
 
-        minMoney = 150;
+        minMoney = 200;
     }
 
     public void SprayButton()
@@ -150,11 +150,74 @@ public class TowerPlacement : MonoBehaviour
         {
             if (placeSwitchCheck)
             {
-                if (hit.transform.tag == "Path")
+                if (hit.transform.tag != "NonPlace")
                 {
-                    if (hit.transform.tag != "Enemy")
+                    if (hit.transform.tag == "Path")
+                    {
+                        if (hit.transform.tag != "Enemy")
+                        {
+                            if (pathPlacement)
+                            {
+                                BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
+
+                                if (baseScript.moneyAmount >= minMoney)
+                                {
+                                    baseScript.moneyAmount -= minMoney;
+
+                                    followMouse.transform.position = startOpPos;
+
+                                    Instantiate(mousePlacement, hit.point, rotated);
+
+                                    placeSwitchCheck = false;
+
+                                    shop.SetActive(true);
+                                    shopScript.pauseMenuBlock = false;
+                                    pauseScript.shopOpenBlock = false;
+
+                                    pathPlacement = false;
+                                }
+                                else
+                                {
+                                    followMouse.transform.position = startOpPos;
+
+                                    placeSwitchCheck = false;
+
+                                    shop.SetActive(true);
+                                    shopScript.pauseMenuBlock = false;
+                                    pauseScript.shopOpenBlock = false;
+
+                                    pathPlacement = false;
+                                }
+                            }
+                            else
+                            {
+                                followMouse.transform.position = startOpPos;
+
+                                placeSwitchCheck = false;
+
+                                shop.SetActive(true);
+                                shopScript.pauseMenuBlock = false;
+                                pauseScript.shopOpenBlock = false;
+
+                                pathPlacement = false;
+                            }
+                        }
+                    }
+                    else
                     {
                         if (pathPlacement)
+                        {
+                            pathPlacement = false;
+
+                            followMouse.transform.position = startOpPos;
+
+                            placeSwitchCheck = false;
+
+                            shop.SetActive(true);
+                            shopScript.pauseMenuBlock = false;
+                            pauseScript.shopOpenBlock = false;
+                        }
+                        else
                         {
                             BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
 
@@ -172,7 +235,6 @@ public class TowerPlacement : MonoBehaviour
                                 shopScript.pauseMenuBlock = false;
                                 pauseScript.shopOpenBlock = false;
 
-                                pathPlacement = false;
                             }
                             else
                             {
@@ -181,62 +243,21 @@ public class TowerPlacement : MonoBehaviour
                                 placeSwitchCheck = false;
 
                                 shop.SetActive(true);
+                                shopScript.pauseMenuBlock = false;
+                                pauseScript.shopOpenBlock = false;
                             }
-                        }
-                        else
-                        {
-                            followMouse.transform.position = startOpPos;
-
-                            placeSwitchCheck = false;
-
-                            shop.SetActive(true);
                         }
                     }
                 }
                 else
                 {
-                    if (pathPlacement)
-                    {
-                        pathPlacement = false;
+                    followMouse.transform.position = startOpPos;
 
-                        followMouse.transform.position = startOpPos;
+                    placeSwitchCheck = false;
 
-                        placeSwitchCheck = false;
-
-                        shop.SetActive(true);
-                        shopScript.pauseMenuBlock = false;
-                        pauseScript.shopOpenBlock = false;
-                    }
-                    else
-                    {
-                        BaseScript baseScript = scriptLink.GetComponent<BaseScript>();
-
-                        if (baseScript.moneyAmount >= minMoney)
-                        {
-                            baseScript.moneyAmount -= minMoney;
-
-                            followMouse.transform.position = startOpPos;
-
-                            Instantiate(mousePlacement, hit.point, rotated);
-
-                            placeSwitchCheck = false;
-
-                            shop.SetActive(true);
-                            shopScript.pauseMenuBlock = false;
-                            pauseScript.shopOpenBlock = false;
-
-                        }
-                        else
-                        {
-                            followMouse.transform.position = startOpPos;
-
-                            placeSwitchCheck = false;
-
-                            shop.SetActive(true);
-                            shopScript.pauseMenuBlock = false;
-                            pauseScript.shopOpenBlock = false;
-                        }
-                    }  
+                    shop.SetActive(true);
+                    shopScript.pauseMenuBlock = false;
+                    pauseScript.shopOpenBlock = false;
                 }
             }
 

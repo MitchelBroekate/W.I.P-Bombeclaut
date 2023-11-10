@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Duracell
-  - MouseTrap
-  - Spray
-  - Henry
   - NoPlace
   - Enemy
   - Tower
   - Path
   - NonPlace
+  - Floor
   layers:
   - Default
   - TransparentFX

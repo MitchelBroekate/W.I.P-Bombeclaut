@@ -16,6 +16,8 @@ public class DuracellTowerAI : MonoBehaviour
     public float fireRate;
     private float fireCountdown = 0f;
 
+    public AudioSource zapSound;
+
     public List<ParticleCollisionEvent> collisionEvents;
     private void Start()
     {
@@ -61,6 +63,7 @@ public class DuracellTowerAI : MonoBehaviour
         if(fireCountdown <= 0f)
         {
             teslaShot.Play();
+            zapSound.Play();
             fireCountdown = 1f / fireRate;
         }
 

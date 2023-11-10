@@ -7,6 +7,7 @@ public class MouseTrapping : MonoBehaviour
     Animator animator;
     EnemyAI enemyAI;
     bool doDamage = true;
+    public AudioSource mouseSound;
 
     private void Start()
     {
@@ -30,6 +31,8 @@ public class MouseTrapping : MonoBehaviour
     IEnumerator StartAnimation(float waitTime, float waitTimeDamage)
     {
         animator.SetBool("Trap Active", true);
+
+        mouseSound.Play();
 
         enemyAI.health -= 150;
 
