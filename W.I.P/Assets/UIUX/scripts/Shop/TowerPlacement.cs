@@ -37,6 +37,8 @@ public class TowerPlacement : MonoBehaviour
 
     Vector3 startOpPos;
 
+    Quaternion rotated;
+
     Ray ray;
     RaycastHit hit;
 
@@ -148,7 +150,7 @@ public class TowerPlacement : MonoBehaviour
         {
             if (placeSwitchCheck)
             {
-                if (hit.transform.tag == "Path" || hit.transform.tag == "NonPlace")
+                if (hit.transform.tag == "Path")
                 {
                     if (hit.transform.tag != "Enemy")
                     {
@@ -162,7 +164,7 @@ public class TowerPlacement : MonoBehaviour
 
                                 followMouse.transform.position = startOpPos;
 
-                                Instantiate(mousePlacement, hit.point, Quaternion.identity);
+                                Instantiate(mousePlacement, hit.point, rotated);
 
                                 placeSwitchCheck = false;
 
@@ -215,7 +217,7 @@ public class TowerPlacement : MonoBehaviour
 
                             followMouse.transform.position = startOpPos;
 
-                            Instantiate(mousePlacement, hit.point, Quaternion.identity);
+                            Instantiate(mousePlacement, hit.point, rotated);
 
                             placeSwitchCheck = false;
 
@@ -264,12 +266,18 @@ public class TowerPlacement : MonoBehaviour
             hit.point += new Vector3(0, 0.03f, 0);
         }
 
+        if (opHenry) 
+        {
+            hit.point += new Vector3(0, 0.135f, 0);
+        }
+
     }
 
     //void for rotating buildings
     public void RotateTower()
     {
-        followMouse.transform.Rotate(new Vector3(0, 45, 0));
+         followMouse.transform.Rotate(new Vector3(0, 45, 0));
+        rotated = followMouse.transform.rotation;
     }
 
 }

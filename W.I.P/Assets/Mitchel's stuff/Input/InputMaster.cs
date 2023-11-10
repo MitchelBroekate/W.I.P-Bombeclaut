@@ -92,11 +92,11 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Rotate Building"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""26bdadcc-eb31-4ef1-a7d4-eb3ceb98cb77"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": ""Tap"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -253,7 +253,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""5cfec05c-276e-46c0-a03d-ef30ea410e54"",
                     ""path"": ""<Keyboard>/r"",
-                    ""interactions"": ""Press(pressPoint=1)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotate Building"",
